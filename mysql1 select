@@ -1,0 +1,311 @@
+CREATE DATABASE College;
+
+CREATE TABLE students (
+    roll_number INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    age INT,
+    gender VARCHAR(10),
+    email VARCHAR(100),
+    phone_number VARCHAR(15),
+    address VARCHAR(255),
+    course VARCHAR(100),
+    enrollment_date DATE
+);
+
+
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, phone_number, address, course, enrollment_date) VALUES
+(1, 'John', 'Doe', 20, 'Male', 'john.doe1@example.com', '1234567890', '123 Main St', 'Computer Science', '2023-08-01'),
+(2, 'Jane', 'Smith', 21, 'Female', 'jane.smith1@example.com', '2345678901', '456 Elm St', 'Mechanical Engineering', '2023-08-02'),
+(3, 'Alice', 'Johnson', 22, 'Female', 'alice.johnson1@example.com', '3456789012', '789 Oak St', 'Electrical Engineering', '2023-08-03'),
+(4, 'Bob', 'Williams', 23, 'Male', 'bob.williams1@example.com', '4567890123', '101 Pine St', 'Civil Engineering', '2023-08-04'),
+(5, 'Charlie', 'Brown', 20, 'Male', 'charlie.brown1@example.com', '5678901234', '202 Birch St', 'Computer Science', '2023-08-05'),
+(6, 'David', 'Davis', 21, 'Male', 'david.davis1@example.com', '6789012345', '303 Cedar St', 'Mechanical Engineering', '2023-08-06'),
+(7, 'Eve', 'Miller', 22, 'Female', 'eve.miller1@example.com', '7890123456', '404 Maple St', 'Electrical Engineering', '2023-08-07'),
+(8, 'Frank', 'Wilson', 23, 'Male', 'frank.wilson1@example.com', '8901234567', '505 Willow St', 'Civil Engineering', '2023-08-08'),
+(9, 'Grace', 'Moore', 20, 'Female', 'grace.moore1@example.com', '9012345678', '606 Walnut St', 'Computer Science', '2023-08-09'),
+(10, 'Hank', 'Taylor', 21, 'Male', 'hank.taylor1@example.com', '0123456789', '707 Spruce St', 'Mechanical Engineering', '2023-08-10'),
+(11, 'Isaac', 'Lee', 22, 'Male', 'isaac.lee1@example.com', '2345678902', '808 Maple Ave', 'Electrical Engineering', '2023-08-11'),
+(12, 'Julia', 'Clark', 23, 'Female', 'julia.clark1@example.com', '3456789013', '909 Birch Ave', 'Civil Engineering', '2023-08-12'),
+(13, 'Kevin', 'Lewis', 20, 'Male', 'kevin.lewis1@example.com', '4567890124', '101 Cedar Ave', 'Computer Science', '2023-08-13'),
+(14, 'Linda', 'Walker', 21, 'Female', 'linda.walker1@example.com', '5678901235', '202 Pine Ave', 'Mechanical Engineering', '2023-08-14'),
+(15, 'Mike', 'Hall', 22, 'Male', 'mike.hall1@example.com', '6789012346', '303 Oak Ave', 'Electrical Engineering', '2023-08-15'),
+(16, 'Nina', 'Allen', 23, 'Female', 'nina.allen1@example.com', '7890123457', '404 Elm Ave', 'Civil Engineering', '2023-08-16'),
+(17, 'Oscar', 'Young', 20, 'Male', 'oscar.young1@example.com', '8901234568', '505 Walnut Ave', 'Computer Science', '2023-08-17'),
+(18, 'Paula', 'King', 21, 'Female', 'paula.king1@example.com', '9012345679', '606 Spruce Ave', 'Mechanical Engineering', '2023-08-18'),
+(19, 'Quinn', 'Wright', 22, 'Male', 'quinn.wright1@example.com', '0123456790', '707 Maple St', 'Electrical Engineering', '2023-08-19'),
+(20, 'Rachel', 'Scott', 23, 'Female', 'rachel.scott1@example.com', '1234567891', '808 Oak St', 'Civil Engineering', '2023-08-20'),
+(21, 'Steve', 'Torres', 20, 'Male', 'steve.torres1@example.com', '2345678903', '909 Elm St', 'Computer Science', '2023-08-21'),
+(22, 'Tina', 'Nguyen', 21, 'Female', 'tina.nguyen1@example.com', '3456789014', '101 Pine St', 'Mechanical Engineering', '2023-08-22'),
+(23, 'Uma', 'White', 22, 'Female', 'uma.white1@example.com', '4567890125', '202 Cedar St', 'Electrical Engineering', '2023-08-23'),
+(24, 'Victor', 'Harris', 23, 'Male', 'victor.harris1@example.com', '5678901236', '303 Birch St', 'Civil Engineering', '2023-08-24'),
+(25, 'Wendy', 'Martin', 20, 'Female', 'wendy.martin1@example.com', '6789012347', '404 Maple St', 'Computer Science', '2023-08-25'),
+(26, 'Xander', 'Robinson', 21, 'Male', 'xander.robinson1@example.com', '7890123458', '505 Oak St', 'Mechanical Engineering', '2023-08-26'),
+(27, 'Yara', 'Clarkson', 22, 'Female', 'yara.clarkson1@example.com', '8901234569', '606 Elm St', 'Electrical Engineering', '2023-08-27'),
+(28, 'Zane', 'Reed', 23, 'Male', 'zane.reed1@example.com', '9012345680', '707 Walnut St', 'Civil Engineering', '2023-08-28'),
+(29, 'Adam', 'Phillips', 20, 'Male', 'adam.phillips1@example.com', '0123456791', '808 Spruce St', 'Computer Science', '2023-08-29'),
+(30, 'Bella', 'Carter', 21, 'Female', 'bella.carter1@example.com', '1234567892', '909 Maple St', 'Mechanical Engineering', '2023-08-30'),
+(31, 'Carl', 'Parker', 22, 'Male', 'carl.parker1@example.com', '2345678904', '101 Oak St', 'Electrical Engineering', '2023-08-31'),
+(32, 'Dana', 'Anderson', 23, 'Female', 'dana.anderson1@example.com', '3456789015', '202 Pine St', 'Civil Engineering', '2023-09-01'),
+(33, 'Evan', 'Perez', 20, 'Male', 'evan.perez1@example.com', '4567890126', '303 Cedar St', 'Computer Science', '2023-09-02'),
+(34, 'Fiona', 'Cruz', 21, 'Female', 'fiona.cruz1@example.com', '5678901237', '404 Birch St', 'Mechanical Engineering', '2023-09-03'),
+(35, 'George', 'Hill', 22, 'Male', 'george.hill1@example.com', '6789012348', '505 Maple St', 'Electrical Engineering', '2023-09-04'),
+(36, 'Holly', 'Adams', 23, 'Female', 'holly.adams1@example.com', '7890123459', '606 Oak St', 'Civil Engineering', '2023-09-05'),
+(37, 'Ian', 'Lopez', 20, 'Male', 'ian.lopez1@example.com', '8901234570', '707 Elm St', 'Computer Science', '2023-09-06'),
+(38, 'Jade', 'Turner', 21, 'Female', 'jade.turner1@example.com', '9012345681', '808 Walnut St', 'Mechanical Engineering', '2023-09-07'),
+(39, 'Kyle', 'Collins', 22, 'Male', 'kyle.collins1@example.com', '0123456792', '909 Spruce St', 'Electrical Engineering', '2023-09-08'),
+(40, 'Lily', 'Stewart', 23, 'Female', 'lily.stewart1@example.com', '1234567893', '101 Maple St', 'Civil Engineering', '2023-09-09'),
+(41, 'Max', 'Sanchez', 20, 'Male', 'max.sanchez1@example.com', '2345678905', '202 Oak St', 'Computer Science', '2023-09-10'),
+(42, 'Nora', 'Morris', 21, 'Female', 'nora.morris1@example.com', '3456789016', '303 Pine St', 'Mechanical Engineering', '2023-09-11'),
+(43, 'Owen', 'Rogers', 22, 'Male', 'owen.rogers1@example.com', '4567890127', '404 Cedar St', 'Electrical Engineering', '2023-09-12'),
+(44, 'Paige', 'Price', 23, 'Female', 'paige.price1@example.com', '5678901238', '505 Birch St', 'Civil Engineering', '2023-09-13'),
+(45, 'Quincy', 'Hayes', 22, 'Male', 'quincy.hayes1@example.com', '6789012349', '606 Maple St', 'Computer Science', '2023-09-14'),
+(46, 'Rita', 'Foster', 21, 'Female', 'rita.foster1@example.com', '7890123460', '707 Oak St', 'Mechanical Engineering', '2023-09-15'),
+(47, 'Sam', 'Russell', 20, 'Male', 'sam.russell1@example.com', '8901234571', '808 Elm St', 'Electrical Engineering', '2023-09-16'),
+(48, 'Tara', 'Greene', 23, 'Female', 'tara.greene1@example.com', '9012345682', '909 Spruce St', 'Civil Engineering', '2023-09-17'),
+(49, 'Umar', 'Harper', 21, 'Male', 'umar.harper1@example.com', '0123456793', '101 Maple St', 'Computer Science', '2023-09-18'),
+(50, 'Vera', 'Dean', 22, 'Female', 'vera.dean1@example.com', '1234567894', '202 Oak St', 'Mechanical Engineering', '2023-09-19');
+
++++++++++++++++++++++++++++ Some Basic "Select Commands for practice" +++++++++++++++++++++++++++++++++++++++
+
+Select all columns from the students table:
+sql
+SELECT * FROM students;
+
+Select the first_name and last_name of all students:
+sql
+SELECT first_name, last_name FROM students;
+
+Select the age of all students:
+sql
+SELECT age FROM students;
+
+Select the email of all students:
+sql
+SELECT email FROM students;
+
+Select the roll_number and course of all students:
+sql
+SELECT roll_number, course FROM students;
+
+Select the address of all students:
+sql
+SELECT address FROM students;
+
+Select the phone_number of all students:
+sql
+SELECT phone_number FROM students;
+
+Select the first_name, last_name, and email of all students:
+sql
+SELECT first_name, last_name, email FROM students;
+
+Select the gender of all students:
+sql
+SELECT gender FROM students;
+
+Select the enrollment_date of all students:
+sql
+SELECT enrollment_date FROM students;
+
+++++++++++++++++++++++++++++++ Some Advance "Select Commands for practice"  +++++++++++++++++++++++++++++++++
+
+Select all columns for students enrolled in 'Computer Science':
+sql
+SELECT * FROM students WHERE course = 'Computer Science';
+
+Select first_name and last_name for students older than 21:
+sql
+SELECT first_name, last_name FROM students WHERE age > 21;
+
+Select the roll_number and email of 'Male' students:
+sql
+SELECT roll_number, email FROM students WHERE gender = 'Male';
+
+Select students who enrolled on '2023-08-05':
+sql
+SELECT * FROM students WHERE enrollment_date = '2023-08-05';
+
+Select first_name, last_name, and course for 'Female' students enrolled in 'Mechanical Engineering':
+sql
+SELECT first_name, last_name, course FROM students WHERE gender = 'Female' AND course = 'Mechanical Engineering';
+
+Select address for students whose last_name is 'Clark':
+sql
+SELECT address FROM students WHERE last_name = 'Clark';
+
+Select roll_number, first_name, and last_name for students who enrolled after '2023-09-01':
+sql
+SELECT roll_number, first_name, last_name FROM students WHERE enrollment_date > '2023-09-01';
+
+Select students with a phone_number ending in '4567':
+sql
+SELECT * FROM students WHERE phone_number LIKE '%4567';
+
+Select students whose first_name starts with 'J':
+sql
+SELECT * FROM students WHERE first_name LIKE 'J%';
+
+Select the age and course of students enrolled on '2023-08-12':
+sql
+SELECT age, course FROM students WHERE enrollment_date = '2023-08-12';
+
+Select students with first_name containing exactly 5 characters:
+sql
+SELECT * FROM students WHERE LENGTH(first_name) = 5;
+
+Select students enrolled in 'Civil Engineering' and ordered by enrollment_date:
+sql
+SELECT * FROM students WHERE course = 'Civil Engineering' ORDER BY enrollment_date;
+
+Select first_name, last_name, and email for students with an age of 20:
+sql
+SELECT first_name, last_name, email FROM students WHERE age = 20;
+
+Select students whose address contains 'Maple':
+sql
+SELECT * FROM students WHERE address LIKE '%Maple%';
+
+Select first_name, last_name, and phone_number of students who enrolled between '2023-09-01' and '2023-09-10':
+sql
+SELECT first_name, last_name, phone_number FROM students WHERE enrollment_date BETWEEN '2023-09-01' AND '2023-09-10';
+
+Select students who have the same first_name and last_name:
+sql
+SELECT * FROM students WHERE first_name = last_name;
+
+Select students who are either in 'Electrical Engineering' or 'Civil Engineering':
+sql
+SELECT * FROM students WHERE course IN ('Electrical Engineering', 'Civil Engineering');
+
+Select the first_name, last_name, and course of 'Female' students aged 23:
+sql
+SELECT first_name, last_name, course FROM students WHERE gender = 'Female' AND age = 23;
+
+Select students whose email contains 'example.com':
+sql
+SELECT * FROM students WHERE email LIKE '%example.com%';
+
+Select students whose roll_number is less than 10 and age greater than 20:
+sql
+SELECT * FROM students WHERE roll_number < 10 AND age > 20;
+
+Select first_name and last_name for students whose address ends with 'Ave':
+sql
+SELECT first_name, last_name FROM students WHERE address LIKE '%Ave';
+
+Select the first_name and course of students who enrolled in September 2023:
+sql
+SELECT first_name, course FROM students WHERE enrollment_date BETWEEN '2023-09-01' AND '2023-09-30';
+
+Select students whose phone_number starts with '0123':
+sql
+SELECT * FROM students WHERE phone_number LIKE '0123%';
+
+Select students who are enrolled in 'Computer Science' and ordered by first_name:
+sql
+SELECT * FROM students WHERE course = 'Computer Science' ORDER BY first_name;
+
+Select roll_number, first_name, and last_name for students whose last_name starts with 'A' or 'B':
+sql
+SELECT roll_number, first_name, last_name FROM students WHERE last_name LIKE 'A%' OR last_name LIKE 'B%';
+
+Select students who enrolled on the earliest enrollment_date:
+sql
+SELECT * FROM students WHERE enrollment_date = (SELECT MIN(enrollment_date) FROM students);
+
+Select students whose age is an odd number:
+sql
+SELECT * FROM students WHERE age % 2 <> 0;
+
+Select students with the longest first_name:
+sql
+SELECT * FROM students ORDER BY LENGTH(first_name) DESC LIMIT 1;
+
+Select first_name, last_name, and course of 'Male' students enrolled on or after '2023-08-20':
+sql
+SELECT first_name, last_name, course FROM students WHERE gender = 'Male' AND enrollment_date >= '2023-08-20';
+
+Select students whose roll_number is a multiple of 3:
+sql
+SELECT * FROM students WHERE roll_number % 3 = 0;
+
+Select first_name, last_name, and phone_number of students whose email ends with '1@example.com':
+sql
+SELECT first_name, last_name, phone_number FROM students WHERE email LIKE '%1@example.com';
+
+Select the total number of students in the 'Mechanical Engineering' course:
+sql
+SELECT COUNT(*) AS total_students FROM students WHERE course = 'Mechanical Engineering';
+
+Select students whose first_name is 'Nina' or last_name is 'Young':
+sql
+SELECT * FROM students WHERE first_name = 'Nina' OR last_name = 'Young';
+
+Select roll_number, first_name, and enrollment_date for students enrolled after '2023-08-15' ordered by enrollment_date:
+sql
+SELECT roll_number, first_name, enrollment_date FROM students WHERE enrollment_date > '2023-08-15' ORDER BY enrollment_date;
+
+Select students who have not enrolled in 'Civil Engineering':
+sql
+ SELECT * FROM students WHERE course <> 'Civil Engineering';
+
+Select first_name and course of students who are younger than 22:
+sql
+SELECT first_name, course FROM students WHERE age < 22;
+
+Select the top 5 students with the oldest enrollment_date:
+sql
+SELECT * FROM students ORDER BY enrollment_date LIMIT 5;
+
+Select students with first_name containing the letter 'a':
+sql
+SELECT * FROM students WHERE first_name LIKE '%a%';
+
+Select students who enrolled in 'Computer Science' and are older than 21:
+sql
+SELECT * FROM students WHERE course = 'Computer Science' AND age > 21;
+
+Select students whose last_name is 'Scott' and gender is 'Female':
+sql
+SELECT * FROM students WHERE last_name = 'Scott' AND gender = 'Female';
+
+Select the course and total number of students in each course:
+sql
+SELECT course, COUNT(*) AS student_count FROM students GROUP BY course;
+
+Select the roll_number and first_name of students who enrolled in the first 10 days of August 2023:
+sql
+SELECT roll_number, first_name FROM students WHERE enrollment_date BETWEEN '2023-08-01' AND '2023-08-10';
+
+Select students whose age is greater than the average age of all students:
+sql
+SELECT * FROM students WHERE age > (SELECT AVG(age) FROM students);
+
+Select students who are enrolled in the 'Electrical Engineering' course and ordered by last_name:
+sql
+SELECT * FROM students WHERE course = 'Electrical Engineering' ORDER BY last_name;
+
+Select the unique address values from the students table:
+sql
+SELECT DISTINCT address FROM students;
+
+Select the first_name, last_name, and gender of students who are not in 'Mechanical Engineering':
+sql
+SELECT first_name, last_name, gender FROM students WHERE course <> 'Mechanical Engineering';
+
+Select students whose phone_number contains '8901':
+sql
+SELECT * FROM students WHERE phone_number LIKE '%8901%';
+
+Select students with the shortest last_name:
+sql
+SELECT * FROM students ORDER BY LENGTH(last_name) ASC LIMIT 1;
+
+Select students who enrolled after '2023-09-01' and whose address contains 'Maple':
+sql
+SELECT * FROM students WHERE enrollment_date > '2023-09-01' AND address LIKE '%Maple%';
+
+Select the total number of 'Female' students in the 'Civil Engineering' course:
+sql
+SELECT COUNT(*) AS total_female_students FROM students WHERE gender = 'Female' AND cour
