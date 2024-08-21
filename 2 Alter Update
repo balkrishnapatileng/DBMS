@@ -1,0 +1,589 @@
+The ALTER command in MySQL is used to modify the structure of an existing database object, typically a table. You can use it to add, delete, or modify columns, indexes, and constraints, or to change the table's properties. Below are some common uses of the ALTER command with explanations and examples:
+
+1. Add a Column:
+sql
+-------------
+ALTER TABLE employees ADD COLUMN department VARCHAR(50);
+Explanation: This command adds a new column named department of type VARCHAR(50) to the employees table. All existing rows in the table will have this column added, but the values will be NULL unless specified otherwise.
+2. Drop a Column:
+sql
+-------------
+ALTER TABLE employees DROP COLUMN salary;
+Explanation: This command removes the salary column from the employees table. All data in that column will be permanently deleted.
+3. Modify a Column:
+sql
+-------------
+ALTER TABLE employees MODIFY COLUMN last_name VARCHAR(100) NOT NULL;
+Explanation: This command changes the data type of the last_name column in the employees table to VARCHAR(100) and sets it to NOT NULL, meaning it cannot contain NULL values.
+4. Rename a Column:
+sql
+-------------
+ALTER TABLE employees CHANGE COLUMN last_name surname VARCHAR(100);
+Explanation: This command renames the last_name column to surname and changes its data type to VARCHAR(100).
+5. Add an Index:
+sql
+-------------
+ALTER TABLE employees ADD INDEX idx_department (department);
+Explanation: This command adds an index named idx_department to the department column of the employees table, which can improve the performance of queries that filter by department.
+6. Drop an Index:
+sql
+-------------
+ALTER TABLE employees DROP INDEX idx_last_name;
+Explanation: This command removes the index named idx_last_name from the employees table. The table and data remain, but the index is no longer available to optimize queries.
+7. Rename a Table:
+sql
+-------------
+ALTER TABLE employees RENAME TO staff;
+Explanation: This command renames the employees table to staff. All data and structure remain the same, but the table's name is changed.
+8. Add a Foreign Key Constraint:
+sql
+-------------
+ALTER TABLE orders ADD CONSTRAINT fk_customer_id FOREIGN KEY (customer_id) REFERENCES customers(id);
+Explanation: This command adds a foreign key constraint named fk_customer_id to the orders table, linking the customer_id column to the id column in the customers table. This enforces referential integrity between the two tables.
+9. Change Column Default Value:
+sql
+-------------
+ALTER TABLE employees ALTER COLUMN hire_date SET DEFAULT '2023-01-01';
+Explanation: This command sets the default value of the hire_date column in the employees table to 2023-01-01. New rows will have this date as the default unless another value is provided.
+10. Drop a Foreign Key Constraint:
+sql
+-------------
+```sql
+ALTER TABLE orders DROP FOREIGN KEY fk_customer_id;
+```
+
+- **Explanation:** This command removes the foreign key constraint named `fk_customer_id` from the `orders` table. The relationship between the `orders` and `customers` tables is no longer enforced.
+Summary:
+The ALTER command is powerful and versatile, allowing you to modify the structure of your database tables without losing existing data. Whether you're adding new columns, changing data types, renaming objects, or managing indexes and constraints, ALTER is the go-to command for evolving your database schema as your application requirements change.
+
+Caution: As with other database modification commands, using ALTER can have significant impacts on your database, especially when dropping columns, modifying data types, or altering constraints. Always back up your data before performing structural changes.
+
+
++++++++++++++++++++++++++++++++
+
+
+Here are 50 different ALTER commands that you can perform on the table containing the student data:
+
+Given the table schema for students, here are 50 ALTER commands that you can use to modify the table structure:
+
+1. Add a New Column for GPA
+sql
+-------------
+ALTER TABLE students ADD COLUMN gpa DECIMAL(3, 2);
+2. Add a Column for Date of Birth
+sql
+-------------
+ALTER TABLE students ADD COLUMN date_of_birth DATE;
+3. Add a Column for Middle Name
+sql
+-------------
+ALTER TABLE students ADD COLUMN middle_name VARCHAR(50);
+4. Modify the Length of first_name
+sql
+-------------
+ALTER TABLE students MODIFY COLUMN first_name VARCHAR(100);
+5. Rename phone_number to contact_number
+sql
+-------------
+ALTER TABLE students CHANGE COLUMN phone_number contact_number VARCHAR(15);
+6. Drop the address Column
+sql
+-------------
+ALTER TABLE students DROP COLUMN address;
+7. Add a Unique Constraint on email
+sql
+-------------
+ALTER TABLE students ADD UNIQUE (email);
+8. Add a New Column for Nationality
+sql
+-------------
+ALTER TABLE students ADD COLUMN nationality VARCHAR(50);
+9. Modify age Column to Allow Only Positive Values
+sql
+-------------
+ALTER TABLE students MODIFY COLUMN age INT UNSIGNED;
+10. Change the Data Type of gender to CHAR
+sql
+-------------
+ALTER TABLE students MODIFY COLUMN gender CHAR(1);
+11. Rename the Table to university_students
+sql
+-------------
+ALTER TABLE students RENAME TO university_students;
+12. Add an Index on last_name
+sql
+-------------
+ALTER TABLE students ADD INDEX idx_last_name (last_name);
+13. Add a status Column with Default Value
+sql
+-------------
+ALTER TABLE students ADD COLUMN status VARCHAR(20) DEFAULT 'active';
+14. Drop the enrollment_date Column
+sql
+-------------
+ALTER TABLE students DROP COLUMN enrollment_date;
+15. Modify email to Be Not Null
+sql
+-------------
+ALTER TABLE students MODIFY COLUMN email VARCHAR(100) NOT NULL;
+16. Add a Foreign Key Constraint
+sql
+-------------
+ALTER TABLE students ADD CONSTRAINT fk_course FOREIGN KEY (course) REFERENCES courses(course_name);
+17. Add a New Column for Enrollment Year
+sql
+-------------
+ALTER TABLE students ADD COLUMN enrollment_year INT;
+18. Rename course to major
+sql
+-------------
+ALTER TABLE students CHANGE COLUMN course major VARCHAR(100);
+19. Add a Column for Student Level (e.g., Undergraduate, Graduate)
+sql
+-------------
+ALTER TABLE students ADD COLUMN student_level VARCHAR(20);
+20. Change the Data Type of roll_number to BIGINT
+sql
+-------------
+ALTER TABLE students MODIFY COLUMN roll_number BIGINT;
+21. Set Default Value for age
+sql
+-------------
+ALTER TABLE students ALTER COLUMN age SET DEFAULT 18;
+22. Add a Column for Emergency Contact Number
+sql
+-------------
+ALTER TABLE students ADD COLUMN emergency_contact VARCHAR(15);
+23. Add a Check Constraint for gender
+sql
+-------------
+ALTER TABLE students ADD CONSTRAINT chk_gender CHECK (gender IN ('Male', 'Female', 'Other'));
+24. Add a New Column for Department
+sql
+-------------
+ALTER TABLE students ADD COLUMN department VARCHAR(100);
+25. Modify phone_number to Allow Only 10 Digits
+sql
+-------------
+ALTER TABLE students MODIFY COLUMN contact_number VARCHAR(10);
+26. Drop the gpa Column
+sql
+-------------
+ALTER TABLE students DROP COLUMN gpa;
+27. Add a Column for Joining Date
+sql
+-------------
+ALTER TABLE students ADD COLUMN joining_date DATE;
+28. Rename first_name to given_name
+sql
+-------------
+ALTER TABLE students CHANGE COLUMN first_name given_name VARCHAR(50);
+29. Add a Column for Last Updated Timestamp
+sql
+-------------
+ALTER TABLE students ADD COLUMN last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+30. Add a Default Value for nationality
+sql
+-------------
+ALTER TABLE students ALTER COLUMN nationality SET DEFAULT 'Unknown';
+31. Change the email Column to be Case-Insensitive
+sql
+-------------
+ALTER TABLE students MODIFY COLUMN email VARCHAR(100) COLLATE utf8_general_ci;
+32. Drop the middle_name Column
+sql
+-------------
+ALTER TABLE students DROP COLUMN middle_name;
+33. Add a Column for Graduation Date
+sql
+-------------
+ALTER TABLE students ADD COLUMN graduation_date DATE;
+34. Rename last_name to surname
+sql
+-------------
+ALTER TABLE students CHANGE COLUMN last_name surname VARCHAR(50);
+35. Add a Column for Credits Earned
+sql
+-------------
+ALTER TABLE students ADD COLUMN credits_earned INT;
+36. Add a Unique Constraint on phone_number
+sql
+-------------
+ALTER TABLE students ADD UNIQUE (contact_number);
+37. Modify course to be Not Null
+sql
+-------------
+ALTER TABLE students MODIFY COLUMN course VARCHAR(100) NOT NULL;
+38. Add a Column for Semester
+sql
+-------------
+ALTER TABLE students ADD COLUMN semester INT;
+39. Modify address to Be Nullable
+sql
+-------------
+ALTER TABLE students MODIFY COLUMN address VARCHAR(255) NULL;
+40. Rename major to study_program
+sql
+-------------
+ALTER TABLE students CHANGE COLUMN major study_program VARCHAR(100);
+41. Add a Column for Internship Status
+sql
+-------------
+ALTER TABLE students ADD COLUMN internship_status VARCHAR(50);
+42. Add a Default Value for status
+sql
+-------------
+ALTER TABLE students ALTER COLUMN status SET DEFAULT 'enrolled';
+43. Change Data Type of credits_earned to SMALLINT
+sql
+-------------
+ALTER TABLE students MODIFY COLUMN credits_earned SMALLINT;
+44. Add a Column for Year of Graduation
+sql
+-------------
+ALTER TABLE students ADD COLUMN graduation_year INT;
+45. Add an Index on email
+sql
+-------------
+ALTER TABLE students ADD INDEX idx_email (email);
+46. Drop the nationality Column
+sql
+-------------
+ALTER TABLE students DROP COLUMN nationality;
+47. Modify enrollment_year to be Nullable
+sql
+-------------
+ALTER TABLE students MODIFY COLUMN enrollment_year INT NULL;
+48. Rename address to residential_address
+sql
+-------------
+ALTER TABLE students CHANGE COLUMN address residential_address VARCHAR(255);
+49. Add a Column for LinkedIn Profile
+sql
+-------------
+ALTER TABLE students ADD COLUMN linkedin_profile VARCHAR(255);
+50. Drop the status Column
+sql
+-------------
+ALTER TABLE students DROP COLUMN status;
+These commands demonstrate various ways to modify and manage the structure and constraints of your students table in MySQL.
+
+These ALTER commands cover a variety of operations you can perform on your table, including adding and removing columns, changing data types, renaming columns and tables, adding constraints, and creating indexes.
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+The ALTER command in SQL is used to make changes to an existing database table without needing to recreate the entire table. Here are some common reasons why you would use the ALTER command:
+
+1. Add New Columns:
+If you need to store additional data for each record, you can add a new column to the existing table without affecting the existing data.
+Example: Adding a gpa column to store students' grade point averages.
+sql
+-------------
+ALTER TABLE students ADD COLUMN gpa DECIMAL(3, 2);
+2. Modify Existing Columns:
+You can change the data type, size, default value, or other attributes of an existing column to better fit your data.
+Example: Increasing the length of the first_name column to accommodate longer names.
+sql
+-------------
+ALTER TABLE students MODIFY COLUMN first_name VARCHAR(100);
+3. Rename Columns or Tables:
+You can rename a column or the table itself for clarity or consistency.
+Example: Renaming the address column to street_address.
+sql
+-------------
+ALTER TABLE students CHANGE COLUMN address street_address VARCHAR(255);
+4. Drop Columns:
+If a column is no longer needed, you can remove it from the table, which reduces storage and simplifies the schema.
+Example: Dropping the middle_name column if it is no longer relevant.
+sql
+-------------
+ALTER TABLE students DROP COLUMN middle_name;
+5. Add Constraints:
+Constraints like NOT NULL, UNIQUE, CHECK, and FOREIGN KEY can be added to enforce data integrity and relationships between tables.
+Example: Adding a UNIQUE constraint to the email column to ensure no duplicate emails.
+sql
+-------------
+ALTER TABLE students ADD UNIQUE (email);
+6. Create Indexes:
+Indexes can be added to improve the performance of queries, especially on large tables.
+Example: Adding an index on the last_name column to speed up searches.
+sql
+-------------
+ALTER TABLE students ADD INDEX idx_last_name (last_name);
+7. Change Default Values:
+You can set or modify the default values for columns so that if no value is provided, the default is automatically applied.
+Example: Setting a default value for the status column.
+sql
+-------------
+ALTER TABLE students ALTER COLUMN status SET DEFAULT 'active';
+8. Modify Table Structure Without Data Loss:
+ALTER allows you to modify the structure of the table without having to drop it and lose the data contained within it.
+9. Maintain Database Performance:
+Periodic use of ALTER to modify tables as the needs of your application evolve can help maintain optimal database performance and integrity.
+10. Adapt to Changing Requirements:
+As business or application requirements evolve, the structure of your database often needs to evolve too. ALTER allows you to make these adjustments flexibly.
+Conclusion:
+The ALTER command is a powerful tool for database management. It allows you to make essential updates to the table structure, add or remove
+
+
+++++++++++++++++++++++++++++++++++++++++++++
+
+Insert All values as alter command sequential ----
+
+Here are some sample INSERT statements that align with the ALTER commands applied to your students table. These statements will insert values into the modified table structure.
+
+1. Inserting a Record with GPA
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, gpa)
+VALUES (51, 'Amber', 'Bennett', 21, 'Female', 'amber.bennett1@example.com', '2345678910', '101 Willow St', 'Computer Science', '2023-09-20', 3.85);
+2. Inserting a Record with Date of Birth
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, date_of_birth)
+VALUES (52, 'Ben', 'Carroll', 22, 'Male', 'ben.carroll1@example.com', '3456789017', '202 Elm St', 'Mechanical Engineering', '2023-09-21', '2001-07-14');
+3. Inserting a Record with Middle Name
+sql
+-------------
+INSERT INTO students (roll_number, first_name, middle_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (53, 'Cathy', 'Elaine', 'Dixon', 23, 'Female', 'cathy.dixon1@example.com', '4567890128', '303 Cedar St', 'Electrical Engineering', '2023-09-22');
+4. Inserting a Record with Updated First Name Length
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (54, 'Alexander', 'Evans', 20, 'Male', 'alex.evans1@example.com', '5678901239', '404 Birch St', 'Civil Engineering', '2023-09-23');
+5. Inserting a Record with Renamed contact_number
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (55, 'Diana', 'Fletcher', 21, 'Female', 'diana.fletcher1@example.com', '6789012350', '505 Maple St', 'Computer Science', '2023-09-24');
+6. Inserting a Record without address
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, course, enrollment_date)
+VALUES (56, 'Edward', 'Gonzalez', 22, 'Male', 'edward.gonzalez1@example.com', '7890123461', 'Mechanical Engineering', '2023-09-25');
+7. Inserting a Record with Unique Email
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (57, 'Fiona', 'Harper', 23, 'Female', 'fiona.harper1@example.com', '8901234572', '606 Oak St', 'Electrical Engineering', '2023-09-26');
+8. Inserting a Record with Nationality
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, nationality)
+VALUES (58, 'George', 'Ingram', 20, 'Male', 'george.ingram1@example.com', '9012345683', '707 Elm St', 'Civil Engineering', '2023-09-27', 'American');
+9. Inserting a Record with Positive Age
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (59, 'Hannah', 'Jackson', 21, 'Female', 'hannah.jackson1@example.com', '0123456794', '808 Walnut St', 'Computer Science', '2023-09-28');
+10. Inserting a Record with Gender as CHAR
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (60, 'Isaac', 'Kennedy', 22, 'M', 'isaac.kennedy1@example.com', '1234567895', '909 Maple St', 'Mechanical Engineering', '2023-09-29');
+11. Inserting a Record after Table Rename
+sql
+-------------
+INSERT INTO university_students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (61, 'Jessica', 'Lewis', 23, 'F', 'jessica.lewis1@example.com', '2345678906', '101 Oak St', 'Electrical Engineering', '2023-09-30');
+12. Inserting a Record with Index on Last Name
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (62, 'Kyle', 'Mitchell', 20, 'M', 'kyle.mitchell1@example.com', '3456789018', '202 Pine St', 'Civil Engineering', '2023-10-01');
+13. Inserting a Record with Default Status
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (63, 'Laura', 'Nelson', 21, 'F', 'laura.nelson1@example.com', '4567890129', '303 Cedar St', 'Computer Science', '2023-10-02');
+14. Inserting a Record without Enrollment Date
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course)
+VALUES (64, 'Mark', 'Owens', 22, 'M', 'mark.owens1@example.com', '5678901240', '404 Birch St', 'Mechanical Engineering');
+15. Inserting a Record with Not Null Email
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (65, 'Nina', 'Parker', 23, 'F', 'nina.parker1@example.com', '6789012351', '505 Maple St', 'Electrical Engineering', '2023-10-03');
+16. Inserting a Record with Foreign Key Reference
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (66, 'Oliver', 'Quinn', 20, 'M', 'oliver.quinn1@example.com', '7890123462', '606 Oak St', 'Computer Science', '2023-10-04');
+17. Inserting a Record with Enrollment Year
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, enrollment_year)
+VALUES (67, 'Paula', 'Reed', 21, 'F', 'paula.reed1@example.com', '8901234573', '707 Elm St', 'Mechanical Engineering', '2023-10-05', 2023);
+18. Inserting a Record with Renamed major
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, study_program, enrollment_date)
+VALUES (68, 'Quincy', 'Sanders', 22, 'M', 'quincy.sanders1@example.com', '9012345684', '808 Walnut St', 'Civil Engineering', '2023-10-06');
+19. Inserting a Record with Student Level
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, student_level)
+VALUES (69, 'Rachel', 'Thomas', 23, 'F', 'rachel.thomas1@example.com', '0123456795', '909 Maple St', 'Computer Science', '2023-10-07', 'Undergraduate');
+20. Inserting a Record with BIGINT Roll Number
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (10000000001, 'Steven', 'Upton', 20, 'M', 'steven.upton1@example.com', '1234567896', '101 Oak St', 'Mechanical Engineering', '2023-10-08');
+21. Inserting a Record with Default Age
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (71, 'Tina', 'Vaughn', 18, 'F', 'tina.vaughn1@example.com', '2345678907', '202 Pine St', 'Electrical Engineering', '2023-10-09');
+22. Inserting a Record with Emergency Contact
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, emergency_contact)
+VALUES (72, 'Uma', 'Walker', 19, 'F', 'uma.walker1@example.com', '3456789019', '303 Cedar St', 'Civil Engineering', '2023-10-10', '0987654321');
+23. Inserting a Record with Gender Check Constraint
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (73, 'Victor', 'Xavier', 20, 'Male', 'victor.xavier1@example.com', '4567890130', '404 Birch St', 'Computer Science', '2023-10-11');
+24. Inserting a Record with Department
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, department)
+VALUES (74, 'Wendy', 'Young', 21, 'F', 'wendy.young1@example.com', '5678901241', '505 Maple St', 'Mechanical Engineering', '2023-10-12', 'Engineering');
+25. Inserting a Record with 10-Digit Phone Number
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (75, 'Xander', 'Zimmerman', 22, 'M', 'xander.zimmerman1@example.com', '6789012352', '606 Oak St', 'Electrical Engineering', '2023-10-13');
+26. Inserting a Record without GPA
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (76, 'Yasmine', 'Allen', 23, 'F', 'yasmine.allen1@example.com', '7890123463', '707 Elm St', 'Civil Engineering', '2023-10-14');
+27. Inserting a Record with Joining Date
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, joining_date)
+VALUES (77, 'Zane', 'Baker', 20, 'M', 'zane.baker1@example.com', '8901234574', '808 Walnut St', 'Computer Science', '2023-10-15', '2023-10-15');
+28. Inserting a Record with Renamed first_name
+sql
+-------------
+INSERT INTO students (roll_number, given_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (78, 'Abigail', 'Cooper', 21, 'F', 'abigail.cooper1@example.com', '9012345685', '909 Maple St', 'Mechanical Engineering', '2023-10-16');
+29. Inserting a Record with Last Updated Timestamp
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (79, 'Brandon', 'Davis', 22, 'M', 'brandon.davis1@example.com', '0123456796', '101 Oak St', 'Electrical Engineering', '2023-10-17');
+30. Inserting a Record with Default Nationality
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (80, 'Charlotte', 'Evans', 23, 'F', 'charlotte.evans1@example.com', '1234567897', '202 Pine St', 'Civil Engineering', '2023-10-18');
+31. Inserting a Record with Case-Insensitive Email
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (81, 'Daniel', 'Foster', 20, 'M', 'DANIEL.FOSTER1@example.com', '2345678908', '303 Cedar St', 'Computer Science', '2023-10-19');
+32. Inserting a Record without Middle Name
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (82, 'Eleanor', 'Gibson', 21, 'F', 'eleanor.gibson1@example.com', '3456789010', '404 Birch St', 'Mechanical Engineering', '2023-10-20');
+33. Inserting a Record with Graduation Date
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, graduation_date)
+VALUES (83, 'Frank', 'Hill', 22, 'M', 'frank.hill1@example.com', '4567890123', '505 Maple St', 'Electrical Engineering', '2023-10-21', '2026-05-15');
+34. Inserting a Record with Renamed surname
+sql
+-------------
+INSERT INTO students (roll_number, first_name, surname, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (84, 'Grace', 'Irving', 23, 'F', 'grace.irving1@example.com', '5678901244', '606 Oak St', 'Civil Engineering', '2023-10-22');
+35. Inserting a Record with Credits Earned
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, credits_earned)
+VALUES (85, 'Henry', 'James', 20, 'M', 'henry.james1@example.com', '6789012356', '707 Elm St', 'Computer Science', '2023-10-23', 45);
+36. Inserting a Record with Unique Phone Number
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (86, 'Isabella', 'King', 21, 'F', 'isabella.king1@example.com', '7890123467', '808 Walnut St', 'Mechanical Engineering', '2023-10-24');
+37. Inserting a Record with Not Null Course
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (87, 'Jack', 'Lewis', 22, 'M', 'jack.lewis1@example.com', '8901234579', '909 Maple St', 'Electrical Engineering', '2023-10-25');
+38. Inserting a Record with Semester
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, semester)
+VALUES (88, 'Katherine', 'Moore', 23, 'F', 'katherine.moore1@example.com', '9012345681', '101 Oak St', 'Civil Engineering', '2023-10-26', 6);
+39. Inserting a Record with Nullable Address
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, course, enrollment_date)
+VALUES (89, 'Liam', 'Nelson', 20, 'M', 'liam.nelson1@example.com', '0123456792', 'Computer Science', '2023-10-27');
+40. Inserting a Record with Renamed study_program
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, study_program, enrollment_date)
+VALUES (90, 'Mia', 'Olsen', 21, 'F', 'mia.olsen1@example.com', '1234567894', '202 Pine St', 'Mechanical Engineering', '2023-10-28');
+41. Inserting a Record with Internship Status
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, internship_status)
+VALUES (91, 'Nathan', 'Peterson', 22, 'M', 'nathan.peterson1@example.com', '2345678905', '303 Cedar St', 'Electrical Engineering', '2023-10-29', 'Completed');
+42. Inserting a Record with Roll Number Auto Increment
+sql
+-------------
+INSERT INTO students (first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES ('Olivia', 'Quinn', 23, 'F', 'olivia.quinn1@example.com', '3456789016', '404 Birch St', 'Civil Engineering', '2023-10-30');
+43. Inserting a Record with Renamed enrollment_date
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, admission_date)
+VALUES (93, 'Paul', 'Reynolds', 20, 'M', 'paul.reynolds1@example.com', '4567890125', '505 Maple St', 'Computer Science', '2023-11-01');
+44. Inserting a Record with Social Security Number
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, ssn)
+VALUES (94, 'Quincy', 'Smith', 21, 'M', 'quincy.smith1@example.com', '5678901243', '606 Oak St', 'Mechanical Engineering', '2023-11-02', '123-45-6789');
+45. Inserting a Record with Updated Credits Earned
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, credits_earned)
+VALUES (95, 'Rebecca', 'Taylor', 22, 'F', 'rebecca.taylor1@example.com', '6789012355', '707 Elm St', 'Electrical Engineering', '2023-11-03', 50);
+46. Inserting a Record with Previous Institution
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, previous_institution)
+VALUES (96, 'Samuel', 'Underwood', 23, 'M', 'samuel.underwood1@example.com', '7890123466', '808 Walnut St', 'Civil Engineering', '2023-11-04', 'ABC University');
+47. Inserting a Record with Is Graduated
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, is_graduated)
+VALUES (97, 'Tina', 'Valdez', 20, 'F', 'tina.valdez1@example.com', '8901234578', '909 Maple St', 'Computer Science', '2023-11-05', FALSE);
+48. Inserting a Record with Language Preference
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, language_preference)
+VALUES (98, 'Uma', 'Walker', 21, 'F', 'uma.walker1@example.com', '9012345680', '101 Oak St', 'Mechanical Engineering', '2023-11-06', 'English');
+49. Inserting a Record with Updated Email
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date)
+VALUES (99, 'Victor', 'Xavier', 22, 'M', 'victor.xavier_updated1@example.com', '0123456791', '202 Pine St', 'Electrical Engineering', '2023-11-07');
+50. Inserting a Record with Emergency Contact Name
+sql
+-------------
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, contact_number, residential_address, course, enrollment_date, emergency_contact_name)
+VALUES (100, 'Wendy', 'Young', 23, 'F', 'wendy.young1@example.com', '1234567893', '303 Cedar St', 'Civil Engineering', '2023-11-08', 'John Young');
+These INSERT statements match the ALTER statements provided previously, inserting new records that adhere to the updated structure and constraints of the students table.
+
