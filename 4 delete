@@ -1,0 +1,211 @@
+Here are 20 DELETE commands for the students table:
+
+1. Delete Student with Roll Number 1
+sql
+Copy code
+DELETE FROM students WHERE roll_number = 1;
+2. Delete Students with Age 21
+sql
+Copy code
+DELETE FROM students WHERE age = 21;
+3. Delete Students Enrolled in 'Mechanical Engineering'
+sql
+Copy code
+DELETE FROM students WHERE course = 'Mechanical Engineering';
+4. Delete Students with 'Doe' in Last Name
+sql
+Copy code
+DELETE FROM students WHERE last_name = 'Doe';
+5. Delete Students with Email Ending in 'example.com'
+sql
+Copy code
+DELETE FROM students WHERE email LIKE '%example.com';
+6. Delete Students with Null Email
+sql
+Copy code
+DELETE FROM students WHERE email IS NULL;
+7. Delete All Students in 'Computer Science' Course
+sql
+Copy code
+DELETE FROM students WHERE course = 'Computer Science';
+8. Delete Students with Enrollment Date Before '2023-09-01'
+sql
+Copy code
+DELETE FROM students WHERE enrollment_date < '2023-09-01';
+9. Delete Students from a Specific Address
+sql
+Copy code
+DELETE FROM students WHERE address = '123 Main St';
+10. Delete Students with a Phone Number Starting with '123'
+sql
+Copy code
+DELETE FROM students WHERE phone_number LIKE '123%';
+11. Delete Students with Roll Numbers Between 1 and 10
+sql
+Copy code
+DELETE FROM students WHERE roll_number BETWEEN 1 AND 10;
+12. Delete Students with First Name 'Alice'
+sql
+Copy code
+DELETE FROM students WHERE first_name = 'Alice';
+13. Delete Students with Last Name 'Smith'
+sql
+Copy code
+DELETE FROM students WHERE last_name = 'Smith';
+14. Delete Students Whose Enrollment Date is in 2024
+sql
+Copy code
+DELETE FROM students WHERE YEAR(enrollment_date) = 2024;
+15. Delete Students Whose Age is Less than 22
+sql
+Copy code
+DELETE FROM students WHERE age < 22;
+16. Delete Students with Gender 'Female'
+sql
+Copy code
+DELETE FROM students WHERE gender = 'Female';
+17. Delete Students with Phone Number Ending in '0000'
+sql
+Copy code
+DELETE FROM students WHERE phone_number LIKE '%0000';
+18. Delete Students Enrolled After '2023-08-15'
+sql
+Copy code
+DELETE FROM students WHERE enrollment_date > '2023-08-15';
+19. Delete Students with Address Containing 'Oak'
+sql
+Copy code
+DELETE FROM students WHERE address LIKE '%Oak%';
+20. Delete Students with Roll Numbers Ending in 5
+sql
+Copy code
+DELETE FROM students WHERE roll_number % 10 = 5;
+These DELETE commands will help you practice or manage specific records in the students table based on different conditions.
+
+You said:
+more 30
+ChatGPT said:
+ChatGPT
+Certainly! Here are 30 more DELETE commands for the students table:
+
+21. Delete Students with Roll Number 15
+sql
+Copy code
+DELETE FROM students WHERE roll_number = 15;
+22. Delete Students from Address '404 Maple St'
+sql
+Copy code
+DELETE FROM students WHERE address = '404 Maple St';
+23. Delete Students with Age Greater Than 22
+sql
+Copy code
+DELETE FROM students WHERE age > 22;
+24. Delete Students Enrolled in 'Electrical Engineering' and Age 22
+sql
+Copy code
+DELETE FROM students WHERE course = 'Electrical Engineering' AND age = 22;
+25. Delete Students with Gender 'Male' and Enrollment Date After '2023-08-10'
+sql
+Copy code
+DELETE FROM students WHERE gender = 'Male' AND enrollment_date > '2023-08-10';
+26. Delete Students with a Phone Number Containing '567'
+sql
+Copy code
+DELETE FROM students WHERE phone_number LIKE '%567%';
+27. Delete Students with Last Name Starting with 'W'
+sql
+Copy code
+DELETE FROM students WHERE last_name LIKE 'W%';
+28. Delete Students with Null Address
+sql
+Copy code
+DELETE FROM students WHERE address IS NULL;
+29. Delete Students with Enrollment Date on '2023-08-01'
+sql
+Copy code
+DELETE FROM students WHERE enrollment_date = '2023-08-01';
+30. Delete Students Whose Email is Not in a Specific Domain
+sql
+Copy code
+DELETE FROM students WHERE email NOT LIKE '%@school.edu';
+31. Delete Students with First Name Ending in 'a'
+sql
+Copy code
+DELETE FROM students WHERE first_name LIKE '%a';
+32. Delete Students Enrolled in Courses Not Containing 'Engineering'
+sql
+Copy code
+DELETE FROM students WHERE course NOT LIKE '%Engineering%';
+33. Delete Students with Roll Numbers Divisible by 2
+sql
+Copy code
+DELETE FROM students WHERE roll_number % 2 = 0;
+34. Delete Students with Enrollment Date in August 2023
+sql
+Copy code
+DELETE FROM students WHERE MONTH(enrollment_date) = 8 AND YEAR(enrollment_date) = 2023;
+35. Delete Students with Phone Number Length Not Equal to 10
+sql
+Copy code
+DELETE FROM students WHERE LENGTH(phone_number) <> 10;
+36. Delete Students Whose Address Contains 'Pine'
+sql
+Copy code
+DELETE FROM students WHERE address LIKE '%Pine%';
+37. Delete Students with Age Equal to 20
+sql
+Copy code
+DELETE FROM students WHERE age = 20;
+38. Delete Students with Email Address Ending in 'yahoo.com'
+sql
+Copy code
+DELETE FROM students WHERE email LIKE '%yahoo.com';
+39. Delete Students with Course 'Civil Engineering' and Address in 'St'
+sql
+Copy code
+DELETE FROM students WHERE course = 'Civil Engineering' AND address LIKE '%St%';
+40. Delete Students Enrolled on '2023-08-09'
+sql
+Copy code
+DELETE FROM students WHERE enrollment_date = '2023-08-09';
+41. Delete Students with Last Name Containing 'son'
+sql
+Copy code
+DELETE FROM students WHERE last_name LIKE '%son%';
+42. Delete Students with Gender 'Female' and Age Between 20 and 22
+sql
+Copy code
+DELETE FROM students WHERE gender = 'Female' AND age BETWEEN 20 AND 22;
+43. Delete Students with a Phone Number Ending in '1234'
+sql
+Copy code
+DELETE FROM students WHERE phone_number LIKE '%1234';
+44. Delete Students Whose Enrollment Date is in the First Half of the Year
+sql
+Copy code
+DELETE FROM students WHERE MONTH(enrollment_date) <= 6;
+45. Delete Students with Null Age
+sql
+Copy code
+DELETE FROM students WHERE age IS NULL;
+46. Delete Students with Address Starting with '202'
+sql
+Copy code
+DELETE FROM students WHERE address LIKE '202%';
+47. Delete Students with Course 'Computer Science' and Age Above 21
+sql
+Copy code
+DELETE FROM students WHERE course = 'Computer Science' AND age > 21;
+48. Delete Students with Enrollment Date in the Year 2023
+sql
+Copy code
+DELETE FROM students WHERE YEAR(enrollment_date) = 2023;
+49. Delete Students with Last Name 'Brown' and Address Containing 'Birch'
+sql
+Copy code
+DELETE FROM students WHERE last_name = 'Brown' AND address LIKE '%Birch%';
+50. Delete Students with Roll Number Greater Than 30
+sql
+Copy code
+DELETE FROM students WHERE roll_number > 30;
+These commands will help you manage or practice deleting specific records based on different conditions in your students table.
