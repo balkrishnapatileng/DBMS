@@ -1,0 +1,247 @@
+Sure! Let's set up two tables for a banking example and then provide SQL commands for joining them.
+
+Table Definitions
+customers Table:
+
+customer_id INT (Primary Key)
+first_name VARCHAR(50)
+last_name VARCHAR(50)
+email VARCHAR(100)
+phone_number VARCHAR(15)
+address VARCHAR(255)
+accounts Table:
+
+account_id INT (Primary Key)
+customer_id INT (Foreign Key referencing customers.customer_id)
+account_type VARCHAR(50)
+balance DECIMAL(15, 2)
+opened_date DATE
+Table Creation Statements
+sql
+Copy code
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100),
+    phone_number VARCHAR(15),
+    address VARCHAR(255)
+);
+
+CREATE TABLE accounts (
+    account_id INT PRIMARY KEY,
+    customer_id INT,
+    account_type VARCHAR(50),
+    balance DECIMAL(15, 2),
+    opened_date DATE,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+Insert Records
+Insert into customers Table:
+
+sql
+Copy code
+INSERT INTO customers (customer_id, first_name, last_name, email, phone_number, address) VALUES
+(1, 'John', 'Doe', 'john.doe@example.com', '1234567890', '123 Elm St'),
+(2, 'Jane', 'Smith', 'jane.smith@example.com', '2345678901', '456 Oak St'),
+(3, 'Alice', 'Johnson', 'alice.johnson@example.com', '3456789012', '789 Pine St'),
+(4, 'Bob', 'Williams', 'bob.williams@example.com', '4567890123', '101 Maple St'),
+(5, 'Charlie', 'Brown', 'charlie.brown@example.com', '5678901234', '202 Cedar St'),
+(6, 'David', 'Davis', 'david.davis@example.com', '6789012345', '303 Birch St'),
+(7, 'Eve', 'Miller', 'eve.miller@example.com', '7890123456', '404 Walnut St'),
+(8, 'Frank', 'Wilson', 'frank.wilson@example.com', '8901234567', '505 Spruce St'),
+(9, 'Grace', 'Moore', 'grace.moore@example.com', '9012345678', '606 Maple Ave'),
+(10, 'Hank', 'Taylor', 'hank.taylor@example.com', '0123456789', '707 Oak Ave'),
+(11, 'Isaac', 'Lee', 'isaac.lee@example.com', '1234567891', '808 Pine Ave'),
+(12, 'Julia', 'Clark', 'julia.clark@example.com', '2345678902', '909 Birch Ave'),
+(13, 'Kevin', 'Lewis', 'kevin.lewis@example.com', '3456789013', '101 Walnut Ave'),
+(14, 'Linda', 'Walker', 'linda.walker@example.com', '4567890124', '202 Spruce Ave'),
+(15, 'Mike', 'Hall', 'mike.hall@example.com', '5678901235', '303 Maple Ave'),
+(16, 'Nina', 'Allen', 'nina.allen@example.com', '6789012346', '404 Oak Ave'),
+(17, 'Oscar', 'Young', 'oscar.young@example.com', '7890123457', '505 Pine Ave'),
+(18, 'Paula', 'King', 'paula.king@example.com', '8901234568', '606 Birch Ave'),
+(19, 'Quinn', 'Wright', 'quinn.wright@example.com', '9012345679', '707 Walnut Ave'),
+(20, 'Rachel', 'Scott', 'rachel.scott@example.com', '0123456789', '808 Spruce Ave');
+Insert into accounts Table:
+
+sql
+Copy code
+INSERT INTO accounts (account_id, customer_id, account_type, balance, opened_date) VALUES
+(1, 1, 'Checking', 1500.00, '2023-01-10'),
+(2, 1, 'Savings', 2500.00, '2023-02-15'),
+(3, 2, 'Checking', 1000.00, '2023-03-20'),
+(4, 3, 'Savings', 3000.00, '2023-04-25'),
+(5, 4, 'Checking', 1800.00, '2023-05-30'),
+(6, 5, 'Savings', 2700.00, '2023-06-10'),
+(7, 6, 'Checking', 1200.00, '2023-07-15'),
+(8, 7, 'Savings', 3200.00, '2023-08-20'),
+(9, 8, 'Checking', 1400.00, '2023-09-25'),
+(10, 9, 'Savings', 2900.00, '2023-10-30'),
+(11, 10, 'Checking', 1600.00, '2023-11-10'),
+(12, 11, 'Savings', 3100.00, '2023-12-15'),
+(13, 12, 'Checking', 1100.00, '2024-01-20'),
+(14, 13, 'Savings', 3300.00, '2024-02-25'),
+(15, 14, 'Checking', 1700.00, '2024-03-30'),
+(16, 15, 'Savings', 2800.00, '2024-04-10'),
+(17, 16, 'Checking', 1300.00, '2024-05-15'),
+(18, 17, 'Savings', 3400.00, '2024-06-20'),
+(19, 18, 'Checking', 1500.00, '2024-07-25'),
+(20, 19, 'Savings', 2700.00, '2024-08-30');
+Join Commands
+Inner Join Customers and Accounts on customer_id
+sql
+Copy code
+SELECT c.first_name, c.last_name, a.account_type, a.balance
+FROM customers c
+INNER JOIN accounts a ON c.customer_id = a.customer_id;
+Left Join Customers and Accounts on customer_id
+sql
+Copy code
+SELECT c.first_name, c.last_name, a.account_type, a.balance
+FROM customers c
+LEFT JOIN accounts a ON c.customer_id = a.customer_id;
+Right Join Customers and Accounts on customer_id
+sql
+Copy code
+SELECT c.first_name, a.account_type, a.balance
+FROM customers c
+RIGHT JOIN accounts a ON c.customer_id = a.customer_id;
+Inner Join Customers and Accounts on balance
+sql
+Copy code
+SELECT c.first_name, a.balance
+FROM customers c
+INNER JOIN accounts a ON a.balance > 2000.00;
+Left Join Customers and Accounts on email
+sql
+Copy code
+SELECT c.first_name, c.email, a.account_type
+FROM customers c
+LEFT JOIN accounts a ON c.email LIKE '%@example.com';
+Right Join Customers and Accounts on address
+sql
+Copy code
+SELECT c.first_name, c.address, a.account_type
+FROM customers c
+RIGHT JOIN accounts a ON c.address LIKE '%St%';
+Inner Join Customers and Accounts on opened_date
+sql
+Copy code
+SELECT c.first_name, a.opened_date
+FROM customers c
+INNER JOIN accounts a ON a.opened_date BETWEEN '2023-01-01' AND '2024-01-01';
+Left Join Customers and Accounts on phone_number
+sql
+Copy code
+SELECT c.first_name, c.phone_number, a.account_type
+FROM customers c
+LEFT JOIN accounts a ON c.phone_number LIKE '%7890';
+Right Join Customers and Accounts on account_type
+sql
+Copy code
+SELECT c.first_name, a.account_type
+FROM customers c
+RIGHT JOIN accounts a ON a.account_type = 'Savings';
+Full Outer Join Customers and Accounts on customer_id (Emulated)
+sql
+Copy code
+(SELECT c.first_name, a.account_type
+ FROM customers c
+ LEFT JOIN accounts a ON c.customer_id = a.customer_id)
+UNION
+(SELECT c.first_name, a.account_type
+ FROM customers c
+ RIGHT JOIN accounts a ON c.customer_id = a.customer_id);
+Cross Join Customers and Accounts
+sql
+Copy code
+SELECT c.first_name, a.account_type
+FROM customers c
+CROSS JOIN accounts a;
+Inner Join Customers and Accounts with Balance Filter
+sql
+Copy code
+SELECT c.first_name, a.balance
+FROM customers c
+INNER JOIN accounts a ON a.balance > 1500.00;
+Left Join Customers and Accounts with Address Filter
+sql
+Copy code
+SELECT c.first_name, c.address, a.account_type
+FROM customers c
+LEFT JOIN accounts a ON c.address LIKE '%St%' AND a.balance > 2000.00;
+Right Join Customers and Accounts with Account Type Filter
+sql
+Copy code
+SELECT c.first_name, a.account_type
+FROM customers c
+RIGHT JOIN accounts a ON a.account_type = 'Checking';
+Inner Join Customers and Accounts with Phone Number Filter
+sql
+Copy code
+SELECT c.first_name, c.phone_number, a.account_type
+FROM customers c
+INNER JOIN accounts a ON c.phone_number LIKE '%4567';
+Left Join Customers and Accounts with Opened Date Filter
+sql
+Copy code
+SELECT c.first_name, a.opened_date
+FROM customers c
+LEFT JOIN accounts a ON a.opened_date < '2023-12-31';
+Right Join Customers and Accounts with Balance Range Filter
+sql
+Copy code
+SELECT c.first_name, a.balance
+FROM customers c
+RIGHT JOIN accounts a ON a.balance BETWEEN 1000.00 AND 3000.00;
+Inner Join Customers and Accounts on Partial Address
+sql
+Copy code
+SELECT c.first_name, a.account_type
+FROM customers c
+INNER JOIN accounts a ON c.address LIKE '%Ave%';
+Left Join Customers and Accounts on Email Domain
+sql
+Copy code
+SELECT c.first_name, c.email, a.account_type
+FROM customers c
+LEFT JOIN accounts a ON c.email LIKE '%@example.com';
+Right Join Customers and Accounts on Balance Filter
+sql
+Copy code
+SELECT c.first_name, a.balance
+FROM customers c
+RIGHT JOIN accounts a ON a.balance < 2500.00;
+Inner Join Customers and Accounts with Multiple Conditions
+sql
+Copy code
+SELECT c.first_name, a.account_type, a.balance
+FROM customers c
+INNER JOIN accounts a ON c.customer_id = a.customer_id
+WHERE a.balance > 2000.00 AND c.address LIKE '%St%';
+Left Join Customers and Accounts with Specific Balance
+sql
+Copy code
+SELECT c.first_name, a.balance
+FROM customers c
+LEFT JOIN accounts a ON a.balance = 1500.00;
+Right Join Customers and Accounts with Specific Account Type
+sql
+Copy code
+SELECT c.first_name, a.account_type
+FROM customers c
+RIGHT JOIN accounts a ON a.account_type = 'Checking';
+Inner Join Customers and Accounts on Multiple Columns
+sql
+Copy code
+SELECT c.first_name, a.account_type, a.balance
+FROM customers c
+INNER JOIN accounts a ON c.customer_id = a.customer_id
+WHERE c.address LIKE '%St%' AND a.balance > 1500.00;
+Left Join Customers and Accounts with Date Filter
+sql
+Copy code
+SELECT c.first_name, a.opened_date
+FROM customers c
+LEFT JOIN accounts a ON a.opened_date > '2023-01-01';
+These commands cover a variety of join types and conditions, helping you practice different aspects of SQL joins. If you need further customization or additional examples, just let me know!
