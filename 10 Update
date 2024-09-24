@@ -1,0 +1,208 @@
+Here are 50 UPDATE commands for the students table based on the schema and values you've provided:
+
+1. Update Email Address
+sql
+Copy code
+UPDATE students SET email = 'john.doe_new@example.com' WHERE roll_number = 1;
+2. Update Phone Number
+sql
+Copy code
+UPDATE students SET phone_number = '0987654321' WHERE roll_number = 2;
+3. Update Address
+sql
+Copy code
+UPDATE students SET address = '789 New St' WHERE roll_number = 3;
+4. Update Course
+sql
+Copy code
+UPDATE students SET course = 'Software Engineering' WHERE roll_number = 4;
+5. Update Enrollment Date
+sql
+Copy code
+UPDATE students SET enrollment_date = '2023-09-01' WHERE roll_number = 5;
+6. Update First Name
+sql
+Copy code
+UPDATE students SET first_name = 'David' WHERE roll_number = 6;
+7. Update Last Name
+sql
+Copy code
+UPDATE students SET last_name = 'Thompson' WHERE roll_number = 7;
+8. Update Age
+sql
+Copy code
+UPDATE students SET age = 25 WHERE roll_number = 8;
+9. Update Gender
+sql
+Copy code
+UPDATE students SET gender = 'Female' WHERE roll_number = 9;
+10. Update Course for All Computer Science Students
+sql
+Copy code
+UPDATE students SET course = 'Data Science' WHERE course = 'Computer Science';
+11. Update All Enrollment Dates in 2023 to 2024
+sql
+Copy code
+UPDATE students SET enrollment_date = '2024-08-01' WHERE enrollment_date BETWEEN '2023-01-01' AND '2023-12-31';
+12. Update First Name and Last Name
+sql
+Copy code
+UPDATE students SET first_name = 'Emily', last_name = 'Blake' WHERE roll_number = 10;
+13. Increase Age by 1 Year for All Students
+sql
+Copy code
+UPDATE students SET age = age + 1;
+14. Change Address and Phone Number
+sql
+Copy code
+UPDATE students SET address = '1234 Elm St', phone_number = '5678904321' WHERE roll_number = 11;
+15. Set Email to Null
+sql
+Copy code
+UPDATE students SET email = NULL WHERE roll_number = 12;
+16. Update Phone Number Format
+sql
+Copy code
+UPDATE students SET phone_number = CONCAT('(', SUBSTRING(phone_number, 1, 3), ') ', SUBSTRING(phone_number, 4, 3), '-', SUBSTRING(phone_number, 7, 4));
+17. Change Course to â€˜Artificial Intelligenceâ€™ for Roll Number 13
+sql
+Copy code
+UPDATE students SET course = 'Artificial Intelligence' WHERE roll_number = 13;
+18. Update Address for a Range of Students
+sql
+Copy code
+UPDATE students SET address = '505 Maple Ave' WHERE roll_number BETWEEN 14 AND 16;
+19. Correct a Typo in a Student's Name
+sql
+Copy code
+UPDATE students SET last_name = 'Peterson' WHERE roll_number = 17;
+20. Update Enrollment Date for Specific Student
+sql
+Copy code
+UPDATE students SET enrollment_date = '2024-01-15' WHERE roll_number = 18;
+21. Set Age to Null for Students Not Enrolled
+sql
+Copy code
+UPDATE students SET age = NULL WHERE enrollment_date IS NULL;
+22. Update Course Name for Mechanical Engineering Students
+sql
+Copy code
+UPDATE students SET course = 'Advanced Mechanical Engineering' WHERE course = 'Mechanical Engineering';
+23. Update Enrollment Date Based on Roll Number
+sql
+Copy code
+UPDATE students SET enrollment_date = '2023-08-01' WHERE roll_number < 10;
+24. Change Email Domain
+sql
+Copy code
+UPDATE students SET email = REPLACE(email, '@example.com', '@school.edu');
+25. Change All Male Students' Gender to 'M'
+sql
+Copy code
+UPDATE students SET gender = 'M' WHERE gender = 'Male';
+26. Change All Female Students' Gender to 'F'
+sql
+Copy code
+UPDATE students SET gender = 'F' WHERE gender = 'Female';
+27. Set Default Phone Number for Students with Null
+sql
+Copy code
+UPDATE students SET phone_number = '0000000000' WHERE phone_number IS NULL;
+28. Update Multiple Columns for Roll Number 19
+sql
+Copy code
+UPDATE students SET age = 24, course = 'Civil Engineering', address = '123 Oak St' WHERE roll_number = 19;
+29. Change Course Name and Update Address
+sql
+Copy code
+UPDATE students SET course = 'Cyber Security', address = '505 Elm St' WHERE roll_number = 20;
+30. Set Enrollment Date to Current Date
+sql
+Copy code
+UPDATE students SET enrollment_date = CURDATE() WHERE roll_number = 21;
+31. Correct a Misspelled Last Name
+sql
+Copy code
+UPDATE students SET last_name = 'Rodriguez' WHERE roll_number = 22;
+32. Update Phone Number Prefix
+sql
+Copy code
+UPDATE students SET phone_number = CONCAT('1', phone_number) WHERE roll_number = 23;
+33. Change Address Format
+sql
+Copy code
+UPDATE students SET address = UPPER(address) WHERE roll_number = 24;
+34. Update Enrollment Date for All Engineering Students
+sql
+Copy code
+UPDATE students SET enrollment_date = '2023-12-01' WHERE course LIKE '%Engineering%';
+35. Set Gender to 'M' for All with Null Gender
+sql
+Copy code
+UPDATE students SET gender = 'M' WHERE gender IS NULL;
+36. Set a Default Email for Students with Missing Email
+sql
+Copy code
+UPDATE students SET email = CONCAT(first_name, '.', last_name, '@default.edu') WHERE email IS NULL;
+37. Update Multiple Fields for a Specific Student
+sql
+Copy code
+UPDATE students SET first_name = 'Gabriel', last_name = 'Garcia', phone_number = '0123456789' WHERE roll_number = 25;
+38. Change Course Name for a Group of Students
+sql
+Copy code
+UPDATE students SET course = 'Information Technology' WHERE roll_number IN (26, 27, 28);
+39. Change All Students' Email Domain to New Domain
+sql
+Copy code
+UPDATE students SET email = REPLACE(email, '@school.edu', '@university.edu');
+40. Update the Enrollment Date for the Latest Batch
+sql
+Copy code
+UPDATE students SET enrollment_date = '2024-01-10' WHERE roll_number BETWEEN 29 AND 40;
+41. Set Address to NULL for Students with Missing Address
+sql
+Copy code
+UPDATE students SET address = NULL WHERE address = '';
+42. Update Phone Number for a Range of Students
+sql
+Copy code
+UPDATE students SET phone_number = '9999999999' WHERE roll_number BETWEEN 41 AND 45;
+43. Update Enrollment Date to Next Year
+sql
+Copy code
+UPDATE students SET enrollment_date = DATE_ADD(enrollment_date, INTERVAL 1 YEAR) WHERE roll_number > 40;
+44. Set Course to 'Undeclared' for Students with Null Course
+sql
+Copy code
+UPDATE students SET course = 'Undeclared' WHERE course IS NULL;
+45. Update Address and Course Together
+sql
+Copy code
+UPDATE students SET address = '456 Maple St', course = 'Environmental Science' WHERE roll_number = 46;
+46. Update Email Address for a Group of Students
+sql
+Copy code
+UPDATE students SET email = CONCAT('updated_', email) WHERE roll_number BETWEEN 47 AND 49;
+47. Set Gender to 'Non-Binary' for a Specific Student
+sql
+Copy code
+UPDATE students SET gender = 'Non-Binary' WHERE roll_number = 50;
+48. Increase Age by 2 Years for Specific Group
+sql
+Copy code
+UPDATE students SET age = age + 2 WHERE roll_number IN (31, 32, 33);
+49. Correct an Incorrect Enrollment Date
+sql
+Copy code
+UPDATE students SET enrollment_date = '2023-11-01' WHERE roll_number = 34;
+50. Set All Emails to Lowercase
+sql
+Copy code
+UPDATE students SET email = LOWER(email);
+These UPDATE commands will modify various aspects of the records in the students table, allowing you to practice or implement changes as needed.
+
+
+
+
+
