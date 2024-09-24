@@ -1,0 +1,209 @@
+Here are 50 ORDER BY SQL commands for the students table to sort the data based on various columns and conditions:
+
+1. Order By Roll Number (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY roll_number ASC;
+2. Order By Roll Number (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY roll_number DESC;
+3. Order By First Name (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY first_name ASC;
+4. Order By First Name (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY first_name DESC;
+5. Order By Last Name (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY last_name ASC;
+6. Order By Last Name (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY last_name DESC;
+7. Order By Age (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY age ASC;
+8. Order By Age (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY age DESC;
+9. Order By Gender (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY gender ASC;
+10. Order By Gender (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY gender DESC;
+11. Order By Email (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY email ASC;
+12. Order By Email (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY email DESC;
+13. Order By Phone Number (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY phone_number ASC;
+14. Order By Phone Number (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY phone_number DESC;
+15. Order By Address (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY address ASC;
+16. Order By Address (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY address DESC;
+17. Order By Course (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY course ASC;
+18. Order By Course (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY course DESC;
+19. Order By Enrollment Date (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY enrollment_date ASC;
+20. Order By Enrollment Date (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY enrollment_date DESC;
+21. Order By Age (Ascending) and Roll Number (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY age ASC, roll_number DESC;
+22. Order By Gender (Ascending) and Age (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY gender ASC, age DESC;
+23. Order By Course (Ascending) and Enrollment Date (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY course ASC, enrollment_date DESC;
+24. Order By First Name (Descending) and Last Name (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY first_name DESC, last_name ASC;
+25. Order By Email (Ascending) and Phone Number (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY email ASC, phone_number DESC;
+26. Order By Address (Ascending) and Gender (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY address ASC, gender DESC;
+27. Order By Enrollment Date (Descending) and Age (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY enrollment_date DESC, age ASC;
+28. Order By Age (Ascending) and First Name (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY age ASC, first_name DESC;
+29. Order By Gender (Descending) and Course (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY gender DESC, course ASC;
+30. Order By Phone Number (Ascending) and Address (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY phone_number ASC, address DESC;
+31. Order By Last Name (Ascending) and Enrollment Date (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY last_name ASC, enrollment_date ASC;
+32. Order By Age (Descending) and Email (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY age DESC, email ASC;
+33. Order By Course (Descending) and Phone Number (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY course DESC, phone_number ASC;
+34. Order By First Name (Ascending) and Address (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY first_name ASC, address DESC;
+35. Order By Enrollment Date (Ascending) and Gender (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY enrollment_date ASC, gender ASC;
+36. Order By Phone Number (Descending) and Age (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY phone_number DESC, age ASC;
+37. Order By Last Name (Descending) and First Name (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY last_name DESC, first_name ASC;
+38. Order By Address (Descending) and Enrollment Date (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY address DESC, enrollment_date ASC;
+39. Order By Gender (Ascending) and Last Name (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY gender ASC, last_name DESC;
+40. Order By Email (Descending) and First Name (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY email DESC, first_name ASC;
+41. Order By Age (Ascending) and Gender (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY age ASC, gender ASC;
+42. Order By Enrollment Date (Descending) and Course (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY enrollment_date DESC, course ASC;
+43. Order By Address (Ascending) and Last Name (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY address ASC, last_name DESC;
+44. Order By Gender (Descending) and Age (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY gender DESC, age DESC;
+45. Order By Roll Number (Ascending) and Course (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY roll_number ASC, course DESC;
+46. Order By Phone Number (Descending) and Enrollment Date (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY phone_number DESC, enrollment_date ASC;
+47. Order By First Name (Ascending) and Email (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY first_name ASC, email DESC;
+48. Order By Age (Descending) and Address (Ascending)
+sql
+Copy code
+SELECT * FROM students ORDER BY age DESC, address ASC;
+49. Order By Course (Ascending) and Gender (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY course ASC, gender DESC;
+50. Order By Enrollment Date (Ascending) and Roll Number (Descending)
+sql
+Copy code
+SELECT * FROM students ORDER BY enrollment_date ASC, roll_number DESC;
+These ORDER BY commands will allow you to sort your data in various ways based on different columns and combinations of columns.
+
+
+
+
+
+
