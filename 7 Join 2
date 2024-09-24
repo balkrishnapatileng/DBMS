@@ -1,0 +1,445 @@
+Certainly! Let's create two tables and populate them with 20 records each. We'll then write 50 JOIN commands to practice different types of joins and combinations.
+
+Table Creation
+students Table
+sql
+Copy code
+CREATE TABLE students (
+    roll_number INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    age INT,
+    gender VARCHAR(10),
+    email VARCHAR(100),
+    phone_number VARCHAR(15),
+    address VARCHAR(255),
+    course VARCHAR(100),
+    enrollment_date DATE
+);
+courses Table
+sql
+Copy code
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(100),
+    department VARCHAR(50),
+    credits INT
+);
+Inserting Records
+Insert Records into students Table
+sql
+Copy code
+INSERT INTO students (roll_number, first_name, last_name, age, gender, email, phone_number, address, course, enrollment_date)
+VALUES
+(1, 'John', 'Doe', 20, 'Male', 'john.doe@example.com', '1234567890', '123 Main St', 'Computer Science', '2023-08-01'),
+(2, 'Jane', 'Smith', 21, 'Female', 'jane.smith@example.com', '2345678901', '456 Elm St', 'Mechanical Engineering', '2023-08-02'),
+(3, 'Alice', 'Johnson', 22, 'Female', 'alice.johnson@example.com', '3456789012', '789 Oak St', 'Electrical Engineering', '2023-08-03'),
+(4, 'Bob', 'Williams', 23, 'Male', 'bob.williams@example.com', '4567890123', '101 Pine St', 'Civil Engineering', '2023-08-04'),
+(5, 'Charlie', 'Brown', 20, 'Male', 'charlie.brown@example.com', '5678901234', '202 Birch St', 'Computer Science', '2023-08-05'),
+(6, 'David', 'Davis', 21, 'Male', 'david.davis@example.com', '6789012345', '303 Cedar St', 'Mechanical Engineering', '2023-08-06'),
+(7, 'Eve', 'Miller', 22, 'Female', 'eve.miller@example.com', '7890123456', '404 Maple St', 'Electrical Engineering', '2023-08-07'),
+(8, 'Frank', 'Wilson', 23, 'Male', 'frank.wilson@example.com', '8901234567', '505 Willow St', 'Civil Engineering', '2023-08-08'),
+(9, 'Grace', 'Moore', 20, 'Female', 'grace.moore@example.com', '9012345678', '606 Walnut St', 'Computer Science', '2023-08-09'),
+(10, 'Hank', 'Taylor', 21, 'Male', 'hank.taylor@example.com', '0123456789', '707 Spruce St', 'Mechanical Engineering', '2023-08-10'),
+(11, 'Isaac', 'Lee', 22, 'Male', 'isaac.lee@example.com', '2345678902', '808 Maple Ave', 'Electrical Engineering', '2023-08-11'),
+(12, 'Julia', 'Clark', 23, 'Female', 'julia.clark@example.com', '3456789013', '909 Birch Ave', 'Civil Engineering', '2023-08-12'),
+(13, 'Kevin', 'Lewis', 20, 'Male', 'kevin.lewis@example.com', '4567890124', '101 Cedar Ave', 'Computer Science', '2023-08-13'),
+(14, 'Linda', 'Walker', 21, 'Female', 'linda.walker@example.com', '5678901235', '202 Pine Ave', 'Mechanical Engineering', '2023-08-14'),
+(15, 'Mike', 'Hall', 22, 'Male', 'mike.hall@example.com', '6789012346', '303 Oak Ave', 'Electrical Engineering', '2023-08-15'),
+(16, 'Nina', 'Allen', 23, 'Female', 'nina.allen@example.com', '7890123457', '404 Elm Ave', 'Civil Engineering', '2023-08-16'),
+(17, 'Oscar', 'Young', 20, 'Male', 'oscar.young@example.com', '8901234568', '505 Walnut Ave', 'Computer Science', '2023-08-17'),
+(18, 'Paula', 'King', 21, 'Female', 'paula.king@example.com', '9012345679', '606 Spruce Ave', 'Mechanical Engineering', '2023-08-18'),
+(19, 'Quinn', 'Wright', 22, 'Male', 'quinn.wright@example.com', '0123456790', '707 Maple St', 'Electrical Engineering', '2023-08-19'),
+(20, 'Rachel', 'Scott', 23, 'Female', 'rachel.scott@example.com', '1234567891', '808 Oak St', 'Civil Engineering', '2023-08-20');
+Insert Records into courses Table
+sql
+Copy code
+INSERT INTO courses (course_id, course_name, department, credits)
+VALUES
+(1, 'Computer Science', 'Engineering', 4),
+(2, 'Mechanical Engineering', 'Engineering', 4),
+(3, 'Electrical Engineering', 'Engineering', 4),
+(4, 'Civil Engineering', 'Engineering', 4),
+(5, 'Mathematics', 'Science', 3),
+(6, 'Physics', 'Science', 3),
+(7, 'Chemistry', 'Science', 3),
+(8, 'Biology', 'Science', 3),
+(9, 'Economics', 'Business', 3),
+(10, 'Accounting', 'Business', 3),
+(11, 'Finance', 'Business', 3),
+(12, 'Marketing', 'Business', 3),
+(13, 'Statistics', 'Science', 3),
+(14, 'Engineering Mechanics', 'Engineering', 4),
+(15, 'Thermodynamics', 'Engineering', 4),
+(16, 'Circuit Analysis', 'Engineering', 4),
+(17, 'Structural Analysis', 'Engineering', 4),
+(18, 'Organic Chemistry', 'Science', 3),
+(19, 'Inorganic Chemistry', 'Science', 3),
+(20, 'Quantum Mechanics', 'Science', 3);
+Join Operations
+Inner Joins
+Inner Join Students and Courses on Course Name
+sql
+Copy code
+SELECT s.first_name, s.last_name, c.course_name
+FROM students s
+INNER JOIN courses c ON s.course = c.course_name;
+Inner Join Students and Courses on Department
+sql
+Copy code
+SELECT s.first_name, s.last_name, c.department
+FROM students s
+INNER JOIN courses c ON c.department = 'Engineering';
+Inner Join Students and Courses on Course ID and Roll Number
+sql
+Copy code
+SELECT s.first_name, s.last_name, c.course_name
+FROM students s
+INNER JOIN courses c ON s.roll_number = c.course_id;
+Inner Join Students and Courses on Credits
+sql
+Copy code
+SELECT s.first_name, s.last_name, c.credits
+FROM students s
+INNER JOIN courses c ON s.age = c.credits;
+Inner Join Students and Courses on Address
+sql
+Copy code
+SELECT s.first_name, s.address, c.course_name
+FROM students s
+INNER JOIN courses c ON s.address LIKE '%St%';
+Left Joins
+Left Join Students and Courses on Course Name
+sql
+Copy code
+SELECT s.first_name, s.last_name, c.course_name
+FROM students s
+LEFT JOIN courses c ON s.course = c.course_name;
+Left Join Students and Courses on Department
+sql
+Copy code
+SELECT s.first_name, s.last_name, c.department
+FROM students s
+LEFT JOIN courses c ON c.department = 'Engineering';
+Left Join Students and Courses on Enrollment Date
+sql
+Copy code
+SELECT s.first_name, s.enrollment_date, c.course_name
+FROM students s
+LEFT JOIN courses c ON s.enrollment_date = c.credits;
+Left Join Students and Courses on Age
+sql
+Copy code
+SELECT s.first_name, s.age, c.course_name
+FROM students s
+LEFT JOIN courses c ON s.age = c.course_id;
+Left Join Students and Courses on Phone Number
+sql
+Copy code
+SELECT s.first_name, s.phone_number, c.course_name
+FROM students s
+LEFT JOIN courses c ON s.phone_number LIKE '%123%';
+Right Joins
+Right Join Students and Courses on Course Name
+sql
+Copy code
+SELECT s.first_name, s.last_name, c.course_name
+FROM students s
+RIGHT JOIN courses c ON s.course = c.course_name;
+Right Join Students and Courses on Department
+sql
+Copy code
+SELECT s.first_name, s.last_name, c.department
+FROM students s
+RIGHT JOIN courses c ON c.department = 'Engineering';
+Right Join Students and Courses on Course ID
+sql
+Copy code
+SELECT s.first_name, s.last_name, c.course_name
+FROM students s
+RIGHT JOIN courses c ON s.roll_number = c.course_id;
+Right Join Students and Courses on Address
+sql
+Copy code
+SELECT s.first_name, s.address, c.course_name
+FROM students s
+RIGHT JOIN courses c ON s.address LIKE '%Ave%';
+Right Join Students and Courses on Age
+sql
+Copy code
+SELECT s.first_name, s.age, c.course_name
+FROM students s
+RIGHT JOIN courses c ON s.age = c.credits;
+Full Outer Joins (Emulated in MySQL)
+Full Outer Join Students and Courses on Course Name
+sql
+Copy code
+(SELECT s.first_name, s.last_name, c.course_name
+ FROM students s
+ LEFT JOIN courses c ON s.course = c.course_name)
+UNION
+(SELECT s.first_name, s.last_name, c.course_name
+ FROM students s
+ RIGHT JOIN courses c ON s.course = c.course_name);
+Full Outer Join Students and Courses on Department
+sql
+Copy code
+(SELECT s.first_name, s.last_name, c.department
+ FROM students s
+ LEFT JOIN courses c ON s.course = c.department)
+UNION
+(SELECT s.first_name, s.last_name, c.department
+ FROM students s
+ RIGHT JOIN courses c ON s.course = c.department);
+Full Outer Join Students and Courses on Enrollment Date
+sql
+Copy code
+(SELECT s.first_name, s.enrollment_date, c.course_name
+ FROM students s
+ LEFT JOIN courses c ON s.enrollment_date = c.course_id)
+UNION
+(SELECT s.first_name, s.enrollment_date, c.course_name
+ FROM students s
+ RIGHT JOIN courses c ON s.enrollment_date = c.course_id);
+Full Outer Join Students and Courses on Age
+sql
+Copy code
+(SELECT s.first_name, s.age, c.course_name
+ FROM students s
+ LEFT JOIN courses c ON s.age = c.course_id)
+UNION
+(SELECT s.first_name, s.age, c.course_name
+ FROM students s
+ RIGHT JOIN courses c ON s.age = c.course_id);
+Full Outer Join Students and Courses on Address
+sql
+Copy code
+(SELECT s.first_name, s.address, c.course_name
+ FROM students s
+ LEFT JOIN courses c ON s.address LIKE '%St%')
+UNION
+(SELECT s.first_name, s.address, c.course_name
+ FROM students s
+ RIGHT JOIN courses c ON s.address LIKE '%St%');
+Cross Joins
+Cross Join Students and Courses
+sql
+Copy code
+SELECT s.first_name, c.course_name
+FROM students s
+CROSS JOIN courses c;
+Cross Join Students and Courses with Course Filter
+sql
+Copy code
+SELECT s.first_name, c.course_name
+FROM students s
+CROSS JOIN courses c
+WHERE c.credits > 3;
+Cross Join Students and Courses with Enrollment Date Filter
+sql
+Copy code
+SELECT s.first_name, c.course_name
+FROM students s
+CROSS JOIN courses c
+WHERE s.enrollment_date < '2023-08-15';
+Cross Join Students and Courses with Gender Filter
+sql
+Copy code
+SELECT s.first_name, c.course_name
+FROM students s
+CROSS JOIN courses c
+WHERE s.gender = 'Female';
+Cross Join Students and Courses with Age Filter
+sql
+Copy code
+SELECT s.first_name, c.course_name
+FROM students s
+CROSS JOIN courses c
+WHERE s.age BETWEEN 20 AND 22;
+Self Joins
+Self Join Students on Age
+sql
+Copy code
+SELECT s1.first_name AS Student1, s2.first_name AS Student2
+FROM students s1
+INNER JOIN students s2 ON s1.age = s2.age
+WHERE s1.roll_number != s2.roll_number;
+Self Join Students on Gender
+sql
+Copy code
+SELECT s1.first_name AS Student1, s2.first_name AS Student2
+FROM students s1
+INNER JOIN students s2 ON s1.gender = s2.gender
+WHERE s1.roll_number != s2.roll_number;
+Self Join Students on Course
+sql
+Copy code
+SELECT s1.first_name AS Student1, s2.first_name AS Student2
+FROM students s1
+INNER JOIN students s2 ON s1.course = s2.course
+WHERE s1.roll_number != s2.roll_number;
+Self Join Students on Address
+sql
+Copy code
+SELECT s1.first_name AS Student1, s2.first_name AS Student2
+FROM students s1
+INNER JOIN students s2 ON s1.address = s2.address
+WHERE s1.roll_number != s2.roll_number;
+Self Join Students on Enrollment Date
+sql
+Copy code
+SELECT s1.first_name AS Student1, s2.first_name AS Student2
+FROM students s1
+INNER JOIN students s2 ON s1.enrollment_date = s2.enrollment_date
+WHERE s1.roll_number != s2.roll_number;
+Additional Joins
+Left Join Students and Courses on Credits
+sql
+Copy code
+SELECT s.first_name, c.credits
+FROM students s
+LEFT JOIN courses c ON s.age = c.credits;
+Right Join Students and Courses on Credits
+sql
+Copy code
+SELECT s.first_name, c.credits
+FROM students s
+RIGHT JOIN courses c ON s.age = c.credits;
+Inner Join Students and Courses on Course ID
+sql
+Copy code
+SELECT s.first_name, c.course_id
+FROM students s
+INNER JOIN courses c ON s.roll_number = c.course_id;
+Left Join Students and Courses on Course Name with Age Filter
+sql
+Copy code
+SELECT s.first_name, s.age, c.course_name
+FROM students s
+LEFT JOIN courses c ON s.course = c.course_name
+WHERE s.age > 20;
+Right Join Students and Courses on Course Name with Department Filter
+sql
+Copy code
+SELECT s.first_name, c.department
+FROM students s
+RIGHT JOIN courses c ON s.course = c.course_name
+WHERE c.department = 'Science';
+Full Outer Join Students and Courses on Gender
+sql
+Copy code
+(SELECT s.first_name, s.gender, c.course_name
+ FROM students s
+ LEFT JOIN courses c ON s.gender = c.department)
+UNION
+(SELECT s.first_name, s.gender, c.course_name
+ FROM students s
+ RIGHT JOIN courses c ON s.gender = c.department);
+Inner Join Students and Courses on Enrollment Date and Credits
+sql
+Copy code
+SELECT s.first_name, s.enrollment_date, c.credits
+FROM students s
+INNER JOIN courses c ON s.enrollment_date = c.credits;
+Left Join Students and Courses on Age and Course Name
+sql
+Copy code
+SELECT s.first_name, s.age, c.course_name
+FROM students s
+LEFT JOIN courses c ON s.age = c.course_id;
+Right Join Students and Courses on Phone Number
+sql
+Copy code
+SELECT s.first_name, s.phone_number, c.course_name
+FROM students s
+RIGHT JOIN courses c ON s.phone_number LIKE '%123%';
+Cross Join Students and Courses with Address Filter
+sql
+Copy code
+SELECT s.first_name, c.course_name
+FROM students s
+CROSS JOIN courses c
+WHERE s.address LIKE '%Ave%';
+Self Join Students on Course Name
+sql
+Copy code
+SELECT s1.first_name AS Student1, s2.first_name AS Student2
+FROM students s1
+INNER JOIN students s2 ON s1.course = s2.course
+WHERE s1.roll_number != s2.roll_number;
+Self Join Students on Gender and Age
+sql
+Copy code
+SELECT s1.first_name AS Student1, s2.first_name AS Student2
+FROM students s1
+INNER JOIN students s2 ON s1.gender = s2.gender AND s1.age = s2.age
+WHERE s1.roll_number != s2.roll_number;
+Inner Join Students and Courses with Complex Conditions
+sql
+Copy code
+SELECT s.first_name, c.course_name
+FROM students s
+INNER JOIN courses c ON s.course = c.course_name
+WHERE s.age > 20 AND c.credits = 4;
+Left Join Students and Courses with Multiple Filters
+sql
+Copy code
+SELECT s.first_name, s.last_name, c.course_name
+FROM students s
+LEFT JOIN courses c ON s.course = c.course_name
+WHERE s.gender = 'Male' AND c.department = 'Engineering';
+Right Join Students and Courses with Enrollment Date Filter
+sql
+Copy code
+SELECT s.first_name, s.enrollment_date, c.course_name
+FROM students s
+RIGHT JOIN courses c ON s.enrollment_date = c.credits
+WHERE s.enrollment_date < '2023-08-15';
+Full Outer Join Students and Courses on Address with Multiple Filters
+sql
+Copy code
+(SELECT s.first_name, s.address, c.course_name
+ FROM students s
+ LEFT JOIN courses c ON s.address LIKE '%St%')
+UNION
+(SELECT s.first_name, s.address, c.course_name
+ FROM students s
+ RIGHT JOIN courses c ON s.address LIKE '%St%');
+Cross Join Students and Courses with Credits Filter
+sql
+Copy code
+SELECT s.first_name, c.course_name
+FROM students s
+CROSS JOIN courses c
+WHERE c.credits = 3;
+Self Join Students on Phone Number
+sql
+Copy code
+SELECT s1.first_name AS Student1, s2.first_name AS Student2
+FROM students s1
+INNER JOIN students s2 ON s1.phone_number = s2.phone_number
+WHERE s1.roll_number != s2.roll_number;
+Inner Join Students and Courses on Course ID and Department
+sql
+Copy code
+SELECT s.first_name, c.department
+FROM students s
+INNER JOIN courses c ON s.roll_number = c.course_id
+WHERE c.department = 'Engineering';
+Left Join Students and Courses with Course Name Filter
+sql
+Copy code
+SELECT s.first_name, s.last_name, c.course_name
+FROM students s
+LEFT JOIN courses c ON s.course = c.course_name
+WHERE c.course_name IS NOT NULL;
+These commands cover a range of join types and conditions, giving you ample practice with SQL joins. If you need further customization or additional examples, just let me know!
+
+
+
+
+
+
+
+
+
