@@ -1,111 +1,103 @@
-https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
-
+Mongo db official url
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/   - 
 Install MongoDB Community Edition on Ubuntu
 Overview
-
-Use this tutorial to install MongoDB 8.0 Community Edition on LTS (long-term support) releases of Ubuntu Linux using the apt package manager.
+Use this tutorial to install MongoDB 8.0 Community Edition on LTS (long-term support) releases of Ubuntu 
+Linux using the apt package manager.
 MongoDB Version
-
 This tutorial installs MongoDB 8.0 Community Edition. To install a different version of MongoDB Community, use the version drop-down menu in the upper-left corner of this page to select the documentation for that version.
 Considerations
 Platform Support
-
 MongoDB 8.0 Community Edition supports the following 64-bit Ubuntu LTS (long-term support) releases on x86_64 architecture:
-
     24.04 LTS ("Noble")
-
     22.04 LTS ("Jammy")
-
     20.04 LTS ("Focal")
-
 MongoDB only supports the 64-bit versions of these platforms. To determine which Ubuntu release your host is running, run the following command on the host's terminal:
-
+++++++++++++++++++++++++++++++++++++++
+Step 1 
+Command:- 
 cat /etc/lsb-release
-
-
-
-
 Install MongoDB Community Edition
-
 Follow these steps to install MongoDB Community Edition using the apt package manager.
-1
+++++++++++++++++++++++++++++++++++++++
+Step 2
 Import the Public Key
-
 From a terminal, install gnupg and curl if they are not already available:
-
+Command:- 
 sudo apt-get install gnupg curl
-
-
-
+++++++++++++++++++++++++++++++++++++++
+Step 3 
 To import the MongoDB public GPG key, run the following command:
-
+Command:- 
 curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \
    sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg \
    --dearmor
-
-
-
-
+++++++++++++++++++++++++++++++++++++++
+Step 4 
 Create the List File
-
 Create the list file /etc/apt/sources.list.d/mongodb-org-8.0.list for your version of Ubuntu.
-
-
-
 Create the list file for Ubuntu 22.04 (Jammy):
-
-
+Command:- 
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
-
-
+++++++++++++++++++++++++++++++++++++++
+Step 5 
 Reload the Package Database
-
 Issue the following command to reload the local package database:
-
+Command:- 
 sudo apt-get update
-
-
-
+++++++++++++++++++++++++++++++++++++++
+Step 6 
 Install MongoDB Community Server
-
 You can install either the latest stable version of MongoDB or a specific version of MongoDB.
-
-
-
 To install the latest stable version, issue the following
-
+Command:- 
 sudo apt-get install -y mongodb-org
-
 If the ulimit value for number of open files is under 64000, MongoDB generates a startup warning.
 Directories
-
 If you installed through the package manager, the data directory /var/lib/mongodb and the log directory /var/log/mongodb are created during the installation.
-
-
+++++++++++++++++++++++++++++++++++++++
+Step 7
 Start MongoDB.
-
 You can start the mongod process by issuing the following command:
-
+Command:- 
 sudo systemctl start mongod
-
-
-
+++++++++++++++++++++++++++++++++++++++
+Step 8 
 Run the following command first:
-
+Command:- 
 sudo systemctl daemon-reload
-
-
+++++++++++++++++++++++++++++++++++++++
+Step 9
 Verify that MongoDB has started successfully.
-
+Command:- 
 sudo systemctl status mongod
-
-
-
+++++++++++++++++++++++++++++++++++++++
+Step 10
 You can optionally ensure that MongoDB will start following a system reboot by issuing the following command:
-
+Command:- 
 sudo systemctl enable mongod
+++++++++++++++++++++++++++++++++++++++
+Now check mongo version 
+mongod --version
+++++++++++++++++++++++++++++++++++++++
+How to get inside mongo
+mongosh
+++++++++++++++++++++++++++++++++++++++
+how to list databases
+show dbs;
+++++++++++++++++++++++++++++++++++++++
+how to list tables
+show collections;
 
 
+
+
+
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ belwo steps are use to remove mongo +++++++++++++++++++++++++++++++++++++
 Stop MongoDB.
 
 As needed, you can stop the mongod process by issuing the following command:
