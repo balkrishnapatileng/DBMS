@@ -90,6 +90,11 @@ how to list tables
 show collections;
 
 
+Conf file 
+
+/etc/mongod.conf
+/var/log/mongodb
+/var/lib/mongodb
 
 
 
