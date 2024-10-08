@@ -1,0 +1,230 @@
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
+
+Install MongoDB Community Edition on Ubuntu
+Overview
+
+Use this tutorial to install MongoDB 8.0 Community Edition on LTS (long-term support) releases of Ubuntu Linux using the apt package manager.
+MongoDB Version
+
+This tutorial installs MongoDB 8.0 Community Edition. To install a different version of MongoDB Community, use the version drop-down menu in the upper-left corner of this page to select the documentation for that version.
+Considerations
+Platform Support
+
+MongoDB 8.0 Community Edition supports the following 64-bit Ubuntu LTS (long-term support) releases on x86_64 architecture:
+
+    24.04 LTS ("Noble")
+
+    22.04 LTS ("Jammy")
+
+    20.04 LTS ("Focal")
+
+MongoDB only supports the 64-bit versions of these platforms. To determine which Ubuntu release your host is running, run the following command on the host's terminal:
+
+cat /etc/lsb-release
+
+
+
+
+Install MongoDB Community Edition
+
+Follow these steps to install MongoDB Community Edition using the apt package manager.
+1
+Import the Public Key
+
+From a terminal, install gnupg and curl if they are not already available:
+
+sudo apt-get install gnupg curl
+
+
+
+To import the MongoDB public GPG key, run the following command:
+
+curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg \
+   --dearmor
+
+
+
+
+Create the List File
+
+Create the list file /etc/apt/sources.list.d/mongodb-org-8.0.list for your version of Ubuntu.
+
+
+
+Create the list file for Ubuntu 22.04 (Jammy):
+
+
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
+
+
+Reload the Package Database
+
+Issue the following command to reload the local package database:
+
+sudo apt-get update
+
+
+
+Install MongoDB Community Server
+
+You can install either the latest stable version of MongoDB or a specific version of MongoDB.
+
+
+
+To install the latest stable version, issue the following
+
+sudo apt-get install -y mongodb-org
+
+If the ulimit value for number of open files is under 64000, MongoDB generates a startup warning.
+Directories
+
+If you installed through the package manager, the data directory /var/lib/mongodb and the log directory /var/log/mongodb are created during the installation.
+
+
+Start MongoDB.
+
+You can start the mongod process by issuing the following command:
+
+sudo systemctl start mongod
+
+
+
+Run the following command first:
+
+sudo systemctl daemon-reload
+
+
+Verify that MongoDB has started successfully.
+
+sudo systemctl status mongod
+
+
+
+You can optionally ensure that MongoDB will start following a system reboot by issuing the following command:
+
+sudo systemctl enable mongod
+
+
+Stop MongoDB.
+
+As needed, you can stop the mongod process by issuing the following command:
+
+sudo systemctl stop mongod
+
+Restart MongoDB.
+
+You can restart the mongod process by issuing the following command:
+
+sudo systemctl restart mongod
+
+You can follow the state of the process for errors or important messages by watching the output in the /var/log/mongodb/mongod.log file.
+
+
+Begin using MongoDB.
+
+Start a mongosh session on the same host machine as the mongod. You can run mongosh without any command-line options to connect to a mongod that is running on your localhost with default port 27017.
+
+
+
+mongosh
+
+
+Uninstall MongoDB Community Edition
+
+To completely remove MongoDB from a system, you must remove the MongoDB applications themselves, the configuration files, and any directories containing data and logs. The following section guides you through the necessary steps.
+Warning
+
+This process will completely remove MongoDB, its configuration, and all databases. This process is not reversible, so ensure that all of your configuration and data is backed up before proceeding.
+1
+Stop MongoDB.
+
+Stop the mongod process by issuing the following command:
+
+sudo service mongod stop
+
+2
+Remove Packages.
+
+Remove any MongoDB packages that you had previously installed.
+
+sudo apt-get purge mongodb-org*
+
+3
+Remove Data Directories.
+
+Remove MongoDB databases and log files.
+
+sudo rm -r /var/log/mongodb
+sudo rm -r /var/lib/mongodb
+
+
+
+
+
+
+
+
+
+sudo rm /etc/apt/sources.list.d/mongodb-org-6.0.list
+sudo rm /etc/apt/sources.list.d/mongodb-org-*.list
+sudo rm /usr/share/keyrings/mongodb-server-*.gpg
+
+nano /etc/mongod.conf
+
+247  sudo apt-key del 6A26B1AE64C3C388
+  248  apt-get clean all
+  249  sudo su
+  250  cat /etc/lsb-release
+  251  sudo apt-get install gnupg curl
+  252  curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc |    sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg    --dearmor
+  253  echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
+  254  sudo apt-get update
+  255  sudo apt-get install -y mongodb-org
+  256  sudo systemctl start mongod
+  257  sudo systemctl daemon-reload
+  258  sudo systemctl status mongod
+  259  tail -f /var/log/mongodb/mongod.log
+  260  mongod
+  261  hostname
+  262  mongo --host sitrc-ThinkCentre-neo-50s-Gen-3
+  263  mongosh
+  264  sudo sucd
+  265  sudo su
+  266  history
+(base) sitrc@sitrc-ThinkCentre-neo-50s-Gen-3:~$ 
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+mongosh
+Current Mongosh Log ID:	6704aa56357f63b170964032
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.1
+Using MongoDB:		8.0.0
+Using Mongosh:		2.3.1
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-10-08T09:03:02.933+05:30: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2024-10-08T09:03:03.808+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2024-10-08T09:03:03.808+05:30: For customers running the tcmalloc-google memory allocator, we suggest setting the contents of sysfsFile to 'always'
+   2024-10-08T09:03:03.808+05:30: For customers running the updated tcmalloc-google memory allocator, we suggest setting the contents of sysfsFile to 'defer+madvise'
+   2024-10-08T09:03:03.808+05:30: We suggest setting the contents of sysfsFile to 0.
+   2024-10-08T09:03:03.808+05:30: vm.max_map_count is too low
+   2024-10-08T09:03:03.808+05:30: We suggest setting swappiness to 0 or 1, as swapping can cause performance problems.
+------
+
+test> 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+show dbs;
+admin   40.00 KiB
+config  60.00 KiB
+local   40.00 KiB
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+

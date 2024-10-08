@@ -1,0 +1,218 @@
+Insert 20 Student Records Using insertMany()
+Here’s a single command that inserts 20 student records at once:
+
+javascript
+
+db.students.insertMany([
+    { rollNumber: "RN1001", firstName: "Alice", middleName: "Marie", lastName: "Johnson", email: "alice.johnson@college.com", phoneNumber: "123-456-7890", address: "123 Maple St, Springfield", class: "Class 12", gender: "Female", age: 18 },
+    { rollNumber: "RN1002", firstName: "Bob", middleName: "Lee", lastName: "Smith", email: "bob.smith@college.com", phoneNumber: "123-456-7891", address: "456 Oak St, Springfield", class: "Class 11", gender: "Male", age: 19 },
+    { rollNumber: "RN1003", firstName: "Carol", middleName: "Ann", lastName: "Davis", email: "carol.davis@college.com", phoneNumber: "123-456-7892", address: "789 Pine St, Springfield", class: "Class 10", gender: "Female", age: 20 },
+    { rollNumber: "RN1004", firstName: "David", middleName: "James", lastName: "Brown", email: "david.brown@college.com", phoneNumber: "123-456-7893", address: "321 Birch St, Springfield", class: "Class 12", gender: "Male", age: 21 },
+    { rollNumber: "RN1005", firstName: "Eva", middleName: "Rose", lastName: "Williams", email: "eva.williams@college.com", phoneNumber: "123-456-7894", address: "654 Cedar St, Springfield", class: "Class 11", gender: "Female", age: 19 },
+    { rollNumber: "RN1006", firstName: "Frank", middleName: "Thomas", lastName: "Jones", email: "frank.jones@college.com", phoneNumber: "123-456-7895", address: "987 Fir St, Springfield", class: "Class 10", gender: "Male", age: 20 },
+    { rollNumber: "RN1007", firstName: "Grace", middleName: "Lynn", lastName: "Garcia", email: "grace.garcia@college.com", phoneNumber: "123-456-7896", address: "147 Spruce St, Springfield", class: "Class 12", gender: "Female", age: 18 },
+    { rollNumber: "RN1008", firstName: "Henry", middleName: "Michael", lastName: "Martinez", email: "henry.martinez@college.com", phoneNumber: "123-456-7897", address: "258 Willow St, Springfield", class: "Class 11", gender: "Male", age: 19 },
+    { rollNumber: "RN1009", firstName: "Isabella", middleName: "Nina", lastName: "Hernandez", email: "isabella.hernandez@college.com", phoneNumber: "123-456-7898", address: "369 Elm St, Springfield", class: "Class 10", gender: "Female", age: 20 },
+    { rollNumber: "RN1010", firstName: "Jack", middleName: "Robert", lastName: "Lopez", email: "jack.lopez@college.com", phoneNumber: "123-456-7899", address: "456 Ash St, Springfield", class: "Class 12", gender: "Male", age: 21 },
+    { rollNumber: "RN1011", firstName: "Kathy", middleName: "Jade", lastName: "Gonzalez", email: "kathy.gonzalez@college.com", phoneNumber: "123-456-7800", address: "567 Maple St, Springfield", class: "Class 11", gender: "Female", age: 19 },
+    { rollNumber: "RN1012", firstName: "Leo", middleName: "Xavier", lastName: "Wilson", email: "leo.wilson@college.com", phoneNumber: "123-456-7801", address: "678 Oak St, Springfield", class: "Class 10", gender: "Male", age: 20 },
+    { rollNumber: "RN1013", firstName: "Mia", middleName: "Sky", lastName: "Anderson", email: "mia.anderson@college.com", phoneNumber: "123-456-7802", address: "789 Pine St, Springfield", class: "Class 12", gender: "Female", age: 18 },
+    { rollNumber: "RN1014", firstName: "Noah", middleName: "Kai", lastName: "Thomas", email: "noah.thomas@college.com", phoneNumber: "123-456-7803", address: "890 Cedar St, Springfield", class: "Class 11", gender: "Male", age: 19 },
+    { rollNumber: "RN1015", firstName: "Olivia", middleName: "Rose", lastName: "Jackson", email: "olivia.jackson@college.com", phoneNumber: "123-456-7804", address: "901 Fir St, Springfield", class: "Class 10", gender: "Female", age: 20 },
+    { rollNumber: "RN1016", firstName: "Peter", middleName: "John", lastName: "White", email: "peter.white@college.com", phoneNumber: "123-456-7805", address: "234 Spruce St, Springfield", class: "Class 12", gender: "Male", age: 21 },
+    { rollNumber: "RN1017", firstName: "Quinn", middleName: "Lee", lastName: "Harris", email: "quinn.harris@college.com", phoneNumber: "123-456-7806", address: "567 Willow St, Springfield", class: "Class 11", gender: "Female", age: 19 },
+    { rollNumber: "RN1018", firstName: "Ryan", middleName: "Alex", lastName: "Clark", email: "ryan.clark@college.com", phoneNumber: "123-456-7807", address: "890 Elm St, Springfield", class: "Class 10", gender: "Male", age: 20 },
+    { rollNumber: "RN1019", firstName: "Sophia", middleName: "Dawn", lastName: "Lewis", email: "sophia.lewis@college.com", phoneNumber: "123-456-7808", address: "321 Birch St, Springfield", class: "Class 12", gender: "Female", age: 18 },
+    { rollNumber: "RN1020", firstName: "Tom", middleName: "Scott", lastName: "Robinson", email: "tom.robinson@college.com", phoneNumber: "123-456-7809", address: "654 Cedar St, Springfield", class: "Class 11", gender: "Male", age: 19 }
+]);
+
+
+
+
+Step 4: Verify the Inserted Records
+
+After executing the above command, your students can check how many documents were inserted:
+
+javascript
+
+db.students.countDocuments()
+
+
+
+Step 5: View the Inserted Records (Optional)
+
+To view the inserted records, they can use:
+
+javascript
+
+db.students.find().pretty()
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ lets run crud operation on above records +++++++++++++++++++++++++
+
+
+Step 1: Open the MongoDB Shell
+
+Start the MongoDB shell:
+
+bash
+
+mongosh
+
+or
+
+bash
+
+mongo
+
+Step 2: Switch to the college Database
+
+Make sure you are in the correct database:
+
+javascript
+
+use college
+
+Create (Insert a New Student Record)
+
+You can demonstrate the Create operation by adding one more student record. Here’s how:
+Insert a New Student
+
+javascript
+
+db.students.insertOne({
+    rollNumber: "RN1021",
+    firstName: "Ursula",
+    middleName: "Claire",
+    lastName: "Thompson",
+    email: "ursula.thompson@college.com",
+    phoneNumber: "123-456-7810",
+    address: "567 Pine St, Springfield",
+    class: "Class 12",
+    gender: "Female",
+    age: 18
+});
+
+Read (Retrieve All Student Records)
+
+Next, let’s read all the student records to see the current list:
+Retrieve All Students
+
+javascript
+
+db.students.find().pretty();
+
+Update (Modify an Existing Student Record)
+
+Let’s update the information of some of the existing students. We can update a student's last name and email. For example, we'll change the last name of the student with rollNumber "RN1001" to "Johnson" and the email address to "alice.johnson@college.edu".
+Update a Student's Last Name and Email
+
+javascript
+
+db.students.updateOne(
+    { rollNumber: "RN1001" },  // Filter
+    { $set: { lastName: "Johnson", email: "alice.johnson@college.edu" } }  // Update operation
+});
+
+Read Again (Verify the Update)
+
+After updating, let’s check if the change was successful by retrieving the specific student record.
+Retrieve the Updated Student
+
+javascript
+
+db.students.find({ rollNumber: "RN1001" }).pretty();
+
+Update Another Student Record
+
+You can update another student's record. For example, we can change the class and age of the student with rollNumber "RN1002".
+Update Class and Age
+
+javascript
+
+db.students.updateOne(
+    { rollNumber: "RN1002" },
+    { $set: { class: "Class 12", age: 20 } }
+});
+
+Delete (Remove a Student Record)
+
+Now, let’s delete a specific student record. For example, we’ll remove the student with rollNumber "RN1021".
+Delete a Student
+
+javascript
+
+db.students.deleteOne({ rollNumber: "RN1021" });
+
+Read Again (Verify the Deletion)
+
+Finally, let’s confirm that the student record has been removed by retrieving all students again.
+Retrieve All Students
+
+javascript
+
+db.students.find().pretty();
+
+Summary of CRUD Operations on the 20 Student Records
+
+    Create (Insert):
+        Add a new student record.
+
+    javascript
+
+db.students.insertOne({...});
+
+Read (Retrieve):
+
+    Retrieve all student records.
+
+javascript
+
+db.students.find().pretty();
+
+Update:
+
+    Update a specific student's last name and email.
+
+javascript
+
+db.students.updateOne({ rollNumber: "RN1001" }, { $set: { lastName: "Johnson", email: "alice.johnson@college.edu" } });
+
+Read Again:
+
+    Verify the update for a specific student.
+
+javascript
+
+db.students.find({ rollNumber: "RN1001" }).pretty();
+
+Update Another Student:
+
+    Update another student's class and age.
+
+javascript
+
+db.students.updateOne({ rollNumber: "RN1002" }, { $set: { class: "Class 12", age: 20 } });
+
+Delete:
+
+    Remove a student record.
+
+javascript
+
+db.students.deleteOne({ rollNumber: "RN1021" });
+
+Read Final State:
+
+    Confirm the deletion by retrieving all students.
+
+javascript
+
+    db.students.find().pretty();
+
+This approach helps your students understand how to perform CRUD operations specifically on the 20 student records. They can run each command sequentially to see how the database changes. Let me know if you need anything else!
+
+
+
+show collections;

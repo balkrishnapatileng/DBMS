@@ -1,0 +1,264 @@
+Sure! Let’s insert just two student records into the students collection in the college database. Here’s how your students can do it step-by-step.
+Step 1: Open the MongoDB Shell
+
+Make sure to start the MongoDB shell:
+
+bash
+
+mongosh
+
+or
+
+bash
+
+mongo
+
+Step 2: Switch to the college Database
+
+Ensure you are in the correct database:
+
+javascript
+
+use college
+
+Step 3: Insert Student Records
+
+Now, let’s insert two student records.
+Insert the First Student
+
+javascript
+
+db.students.insertOne({
+    rollNumber: "RN1001",
+    firstName: "Alice",
+    middleName: "M.",
+    lastName: "Smith",
+    email: "alice.smith@college.com",
+    phoneNumber: "123-456-7890",
+    address: "123 Elm St, Springfield",
+    class: "Class 10",
+    gender: "Female",
+    age: 16
+});
+
+Insert the Second Student
+
+javascript
+
+db.students.insertOne({
+    rollNumber: "RN1002",
+    firstName: "Bob",
+    middleName: "K.",
+    lastName: "Johnson",
+    email: "bob.johnson@college.com",
+    phoneNumber: "098-765-4321",
+    address: "456 Oak St, Springfield",
+    class: "Class 11",
+    gender: "Male",
+    age: 17
+});
+
+Step 4: Verify the Records
+
+You can check that the records have been inserted successfully by retrieving all student records.
+Retrieve All Students
+
+javascript
+
+db.students.find().pretty();
+
+Summary of Commands
+
+Here’s a concise summary of the commands to insert two student records:
+
+    Open MongoDB Shell:
+
+    bash
+
+mongosh
+
+Switch to college database:
+
+javascript
+
+use college
+
+Insert the First Student:
+
+javascript
+
+db.students.insertOne({...});
+
+Insert the Second Student:
+
+javascript
+
+db.students.insertOne({...});
+
+Retrieve All Students:
+
+javascript
+
+    db.students.find().pretty();
+
+This will insert two students into the collection and confirm their insertion. Let me know if you need any further assistance!
+
+
+
+
+Sure! Let's perform CRUD (Create, Read, Update, Delete) operations on the two student records we just inserted. Here’s a step-by-step guide for each operation.
+Step 1: Open the MongoDB Shell
+
+Make sure to start the MongoDB shell:
+
+bash
+
+mongosh
+
+or
+
+bash
+
+mongo
+
+Step 2: Switch to the college Database
+
+Ensure you are in the correct database:
+
+javascript
+
+use college
+
+Create (Insert a New Student Record)
+
+Since we already inserted two students, let's show how to create another student record.
+Insert a New Student
+
+javascript
+
+db.students.insertOne({
+    rollNumber: "RN1003",
+    firstName: "Charlie",
+    middleName: "P.",
+    lastName: "Brown",
+    email: "charlie.brown@college.com",
+    phoneNumber: "234-567-8901",
+    address: "789 Maple St, Springfield",
+    class: "Class 12",
+    gender: "Male",
+    age: 18
+});
+
+Read (Retrieve Student Records)
+
+Now let’s read all the student records to see the current list.
+Retrieve All Students
+
+javascript
+
+db.students.find().pretty();
+
+Retrieve a Specific Student
+
+To get details of a specific student (e.g., Bob Johnson):
+
+javascript
+
+db.students.find({ rollNumber: "RN1002" }).pretty();
+
+Update (Modify an Existing Student Record)
+
+Let’s update the email of one of the students. For example, we’ll change Bob Johnson’s email address.
+Update Bob’s Email
+
+javascript
+
+db.students.updateOne(
+    { rollNumber: "RN1002" },  // Filter
+    { $set: { email: "bob.updated@college.com" } }  // Update operation
+});
+
+Read Again (Verify the Update)
+
+After updating, let’s check if the change was successful.
+Retrieve Bob’s Updated Record
+
+javascript
+
+db.students.find({ rollNumber: "RN1002" }).pretty();
+
+Delete (Remove a Student Record)
+
+Now, let’s delete one of the student records, for instance, Charlie Brown.
+Delete Charlie’s Record
+
+javascript
+
+db.students.deleteOne({ rollNumber: "RN1003" });
+
+Read Again (Verify the Deletion)
+
+Finally, let’s confirm that Charlie’s record has been removed by retrieving all students again.
+Retrieve All Students
+
+javascript
+
+db.students.find().pretty();
+
+Summary of CRUD Operations on the Two Student Records
+
+    Create (Insert):
+        Add a new student record (e.g., Charlie Brown).
+
+    javascript
+
+db.students.insertOne({...});
+
+Read (Retrieve):
+
+    Retrieve all student records.
+
+javascript
+
+db.students.find().pretty();
+
+    Retrieve a specific student (e.g., Bob Johnson).
+
+javascript
+
+db.students.find({ rollNumber: "RN1002" }).pretty();
+
+Update:
+
+    Update a specific student's email (e.g., Bob Johnson).
+
+javascript
+
+db.students.updateOne({ rollNumber: "RN1002" }, { $set: { email: "bob.updated@college.com" } });
+
+Read Again:
+
+    Verify the update for a specific student.
+
+javascript
+
+db.students.find({ rollNumber: "RN1002" }).pretty();
+
+Delete:
+
+    Remove a student record (e.g., Charlie Brown).
+
+javascript
+
+db.students.deleteOne({ rollNumber: "RN1003" });
+
+Read Final State:
+
+    Confirm the deletion by retrieving all students.
+
+javascript
+
+    db.students.find().pretty();
+
+This process gives your students a clear understanding of how to perform CRUD operations on the student records. Let me know if you need further clarification or assistance!
+
